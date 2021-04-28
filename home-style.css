@@ -14,22 +14,23 @@
     position: fixed;
     height: 10%;
     width: 100%;
-    background-color: #829924;
-    border-bottom-right-radius: 10px;
+    background-color: #A8B3B7;
+    border-bottom-right-radius: 8px;
 }
 
 .side {
-    border-right: solid black 1px;
+    border-right: solid rgb(73, 75, 73) 1px;
     position: fixed;
     top: 10%;
     width: 20%;
-    height: 680px;
-    background-color: #D7D9D6;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    height: 90vh;
+    background-color: #517581;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .work-space1 {
+    background-color: rgb(214, 214, 214);
     position: absolute;
     width: 80%;
     height: 90%;
@@ -42,7 +43,7 @@
     font-size: 1.2rem;
     bottom: 50px;
     right: 2rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -50,7 +51,8 @@
     position: absolute;
     width: 230px;
     left: 3%;
-    top: 15%;
+    top: 50%;
+    transform: translateY(-50%);
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
@@ -59,10 +61,10 @@
 
 #balance {
     position: absolute;
-    width: 140px;
+    width: 50%;
     height: 40px;
     left: 50%;
-    margin-left: -20px;
+    margin-left: -50px;
     top: 50px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5px;
@@ -75,21 +77,66 @@
     position: fixed;
     font-size: 80px;
     color: #829924;
-    right: 60px;
-    bottom: 60px;
+    right: 40px;
+    bottom: 40px;
+    border-radius: 50%;
+}
+
+.fa-plus-circle:hover {
+    cursor: pointer;
+    transform: scale(1.25);
+    border: outset;
 }
 
 .my-balance {
     position: absolute;
     width: 140px;
     height: 40px;
-    left: 5%;
+    left: 3%;
     top: 60px;
-    font-size: 21px;
-    text-decoration: underline;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .hr1 {
     position: absolute;
-    top: 10px;
+    top: 17%;
+    width: 90%;
+    left: 5%;
+}
+
+.container1 {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 22%;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.cont1 {
+    text-align: center;
+    height: 50px;
+    font-size: 22px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0;
+}
+
+.cont1:hover {
+    background-color: #d7d9d6;
+    cursor: pointer;
+    border: outset .5px;
+}
+
+p {
+    position: relative;
+    border: solid black;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p:hover {
+    transition: ease 0.25s transform;
+    transform: translateX(20px);
 }
