@@ -48,13 +48,13 @@
 
 .main-header {
     position: absolute;
-    width: 200px;
-    left: 4rem;
-    top: 1rem;
+    width: 230px;
+    left: 3%;
+    top: 15%;
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    font-size: 2.25rem;
+    font-size: 230%;
 }
 
 #balance {
@@ -62,11 +62,34 @@
     width: 140px;
     height: 40px;
     left: 50%;
-    margin-left: -70px;
+    margin-left: -20px;
     top: 50px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 5px;
     text-align: center;
     font-size: 1.1rem;
     padding: 2px;
+}
+
+.fa-plus-circle {
+    position: fixed;
+    font-size: 80px;
+    color: #829924;
+    right: 60px;
+    bottom: 60px;
+}
+
+.my-balance {
+    position: absolute;
+    width: 140px;
+    height: 40px;
+    left: 5%;
+    top: 60px;
+    font-size: 21px;
+    text-decoration: underline;
+}
+
+.hr1 {
+    position: absolute;
+    top: 10px;
 }
