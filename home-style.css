@@ -40,16 +40,40 @@
     left: 20%;
 }
 
-.work-space1 {
-    position: relative;
-    border: solid rgba(0, 0, 0, 0.329) .2px;
+.main-header {
+    position: absolute;
+    width: 230px;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 230%;
+}
+
+.track {
+    position: absolute;
+    width: 100%;
+    font-size: 150px;
+    font-family: cursive;
+    color: rgba(81, 117, 129, 0.65);
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.window {
+    position: absolute;
+    visibility: hidden;
+    border: solid rgba(0, 0, 0, 0.329) 0.2px;
     width: 89%;
     height: 80%;
     top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgba(81, 117, 129, .3);
-    background-color: rgba(191, 199, 217, .3);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(81, 117, 129, 0.3);
+    background-color: rgba(191, 199, 217, 0.3);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -67,18 +91,6 @@
     cursor: default;
 }
 
-.main-header {
-    position: absolute;
-    width: 230px;
-    left: 3%;
-    top: 50%;
-    transform: translateY(-50%);
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    font-size: 230%;
-}
-
 #balance {
     position: absolute;
     width: 50%;
@@ -91,6 +103,19 @@
     text-align: center;
     font-size: 1.1rem;
     padding: 2px;
+}
+
+.wallet {
+    position: absolute;
+    left: 12%;
+    top: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.my-balance:hover {
+    cursor: default;
 }
 
 .fa-plus-circle {
@@ -109,21 +134,6 @@
     transform: scale(1.15);
     transition: ease 0.25s transform;
     border: outset 1px;
-}
-
-.my-balance {
-    position: absolute;
-    width: 140px;
-    height: 40px;
-    left: 3%;
-    top: 60px;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-}
-
-.my-balance:hover {
-    cursor: default;
 }
 
 .hr1 {
