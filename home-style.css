@@ -42,7 +42,7 @@
 
 .main-header {
     position: absolute;
-    width: 230px;
+    width: 300px;
     left: 3%;
     top: 50%;
     transform: translateY(-50%);
@@ -50,6 +50,11 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 230%;
+    letter-spacing: 4px;
+}
+
+.main-header:hover {
+    cursor: default;
 }
 
 .track {
@@ -63,9 +68,13 @@
     transform: translateY(-50%);
 }
 
+.track:hover {
+    cursor: default;
+}
+
 .window {
     position: absolute;
-    visibility: hidden;
+    visibility: visible;
     border: solid rgba(0, 0, 0, 0.329) 0.2px;
     width: 89%;
     height: 80%;
@@ -127,6 +136,7 @@
     right: 75px;
     bottom: 75px;
     border-radius: 50%;
+    box-shadow: 6px 6px 4px #999;
 }
 
 .fa-plus-circle:hover {
@@ -136,9 +146,13 @@
     border: outset 1px;
 }
 
+.fa-plus-circle:active {
+    transform: translateY(3px);
+}
+
 .hr1 {
     position: absolute;
-    border: #bfc7d9 solid 1px;
+    border: rgba(191, 199, 217, .5) solid 1px;
     top: 17%;
     width: 90%;
     left: 5%;
@@ -153,7 +167,7 @@
     row-gap: 20px;
 }
 
-.cont1 {
+.option {
     text-align: center;
     height: 50px;
     font-size: 22px;
@@ -161,19 +175,20 @@
     left: 0;
 }
 
-.cont1:hover {
+.option:hover {
     background-color: #d7d9d6;
     background-color: #bfc7d9;
     cursor: pointer;
     border: outset 0.5px;
+    transition: ease 0.25s transform;
+    transform: translateX(7px);
+}
+
+.option:active {
+    transform: translateY(1.5px);
 }
 
 .item {
     position: relative;
     bottom: 25%;
-}
-
-.cont1:hover {
-    transition: ease 0.25s transform;
-    transform: translateX(7px);
 }
