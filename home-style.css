@@ -1,4 +1,5 @@
 #body {
+    background-color: white;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -10,32 +11,43 @@
 }
 
 .top {
-    border-bottom: solid black 1px;
+    border-bottom: solid rgba(0, 0, 0, 0.349) 1px;
     position: fixed;
     height: 10%;
     width: 100%;
-    background-color: #A8B3B7;
+    background-color: #a8b3b7;
+    background-color: #bfc7d9;
     border-bottom-right-radius: 8px;
 }
 
 .side {
-    border-right: solid rgb(73, 75, 73) 1px;
+    border-right: solid rgba(0, 0, 0, 0.349) 1px;
     position: fixed;
     top: 10%;
     width: 20%;
     height: 90vh;
+    background-color: #86907e;
     background-color: #517581;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-.work-space1 {
-    background-color: rgb(214, 214, 214);
+.work-space {
     position: absolute;
     width: 80%;
     height: 90%;
     top: 10%;
     left: 20%;
+}
+
+.work-space1 {
+    position: relative;
+    border: solid black;
+    width: 84%;
+    height: 80%;
+    top: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .for {
@@ -77,6 +89,8 @@
     position: fixed;
     font-size: 80px;
     color: #829924;
+    color: #86907e;
+    color: #517581;
     right: 40px;
     bottom: 40px;
     border-radius: 50%;
@@ -85,6 +99,7 @@
 .fa-plus-circle:hover {
     cursor: pointer;
     transform: scale(1.25);
+    transition: ease 0.25s transform;
     border: outset;
 }
 
@@ -96,11 +111,12 @@
     top: 60px;
     font-size: 24px;
     font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .hr1 {
     position: absolute;
+    border: #bfc7d9 solid 1px;
     top: 17%;
     width: 90%;
     left: 5%;
@@ -119,24 +135,23 @@
     text-align: center;
     height: 50px;
     font-size: 22px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    padding: 0;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    left: 0;
 }
 
 .cont1:hover {
     background-color: #d7d9d6;
+    background-color: #bfc7d9;
     cursor: pointer;
-    border: outset .5px;
+    border: outset 0.5px;
 }
 
-p {
+.item {
     position: relative;
-    border: solid black;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 25%;
 }
 
-p:hover {
+.cont1:hover {
     transition: ease 0.25s transform;
-    transform: translateX(20px);
+    transform: translateX(7px);
 }
