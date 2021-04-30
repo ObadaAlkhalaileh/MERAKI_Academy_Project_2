@@ -70,15 +70,30 @@ $(`#addButton`).on('click', function() {
     b = Number($(`#in2`).val())
     c = $(`#in3`).val()
     addPayment(a, b, c)
-
-    let lii = $(`<li> </li>`)
-    lii.append(a)
-
-    lii.append(" ( ", b, " ) ")
-    lii.append(c)
-
-    $(`.payment-list`).append(lii)
 })
+
+function renderList() {
+    $(`.payment-list`).text("") //important to keep the counting right
+    for (let i = 0; i < payments.length; i++) {
+        let lii = $(`<li> </li>`)
+        lii.append(payments[i].description)
+        lii.append(" ( ", payments[i].cost, " ) ")
+        lii.append(payments[i].date)
+
+        let bt = $(`<button class="delete-bt">delete</button>`)
+        console.log(i)
+        bt.on('click', function() { ///////// it didnt work with function(i),, why??
+            payments.splice(i, 1)
+            renderList()
+        })
+        lii.append(bt)
+
+        $(`.payment-list`).append(lii)
+    }
+}
+
+$(`#addButton`).on('click', function() { renderList() }) //// it doesnt work without this structure
+
 
 //collect balance 
 let myBalance = 0
