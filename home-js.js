@@ -48,7 +48,7 @@ $(`.dropdown-item2`).on("click", () => {
     $(`.add-action`).css("background-image", 'url(dark.png)')
     $(`input`).css('background-color', '#bfc7d9')
     $(`.track`).css('color', 'rgba(4, 126, 143, .75)')
-    $(`.status`).css('background-color', 'rgba(187, 187, 187,.5)')
+    $(`.status`).css('background-color', 'rgba(187, 187, 187,.7)')
 })
 
 //functionality
