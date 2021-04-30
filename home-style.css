@@ -136,7 +136,7 @@
     transform: translateX(-50%);
     background-color: rgba(81, 117, 129, 0.3);
     background-color: rgba(191, 199, 217, 0.4);
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
@@ -172,7 +172,7 @@
     margin-left: -50px;
     top: 50px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
@@ -299,7 +299,7 @@
     background-color: #bfc7d9;
     cursor: pointer;
     border: outset 0.5px;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: ease 0.25s transform;
     transform: translateX(7px);
 }
@@ -330,7 +330,7 @@
     width: 200px;
     min-height: 50px;
     font-size: 22px;
-    border-radius: 8px;
+    border-radius: 10px;
     color: rgba(0, 0, 0, 1);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -369,7 +369,7 @@
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #517581;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
 }
 
@@ -385,7 +385,7 @@
     position: absolute;
     background-color: whitesmoke;
     border: solid rgba(0, 0, 0, 0.418) 1px;
-    border-radius: 8px;
+    border-radius: 10px;
     height: 70%;
     width: 40%;
     left: 30%;
@@ -395,7 +395,7 @@
 
 .payment-list {
     position: absolute;
-    border-radius: 8px;
+    border-radius: 10px;
     height: 100%;
     width: 90%;
     top: -19px;
