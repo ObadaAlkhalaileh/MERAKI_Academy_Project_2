@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/brands.css" integrity="sha384-V5Z1KgRRJyY878qCx7+zUeTDm0FgjoYrbmSortFqRPGz+Ue6XDe4uIiMqB3tB/wd" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/fontawesome.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body id="body">
@@ -23,17 +24,17 @@
         <span class="for">For Better Control...</span>
         <hr class="hr1">
         <div class="container1">
-            <div class="option">
-                <p class="item"> Status</p>
+            <div class="option o1" onclick="showAloneO1()">
+                <p class="item"> Status <i class="fas fa-bars"></i></p>
             </div>
-            <div class="option">
-                <p class="item"> Monthly Expenses</p>
+            <div class="option o2" onclick="showAloneO2()">
+                <p class="item"> Monthly Expenses <i class="fas fa-file-invoice"></i></p>
             </div>
-            <div class="option">
-                <p class="item"> Summary</p>
+            <div class="option o3" onclick="showAloneO3()">
+                <p class="item"> Summary <i class="fas fa-copy"></i></p>
             </div>
-            <div class="option">
-                <p class="item"> Currency</p>
+            <div class="option o4" onclick="showAloneO4()">
+                <p class="item"> Currency <i class="fas fa-coins"></i></p>
             </div>
         </div>
 
@@ -47,20 +48,20 @@
     </div>
     <div class="work-space">
         <span class="track">Track Your <i class="fas fa-money-bill-wave"></i></span>
-        <div class="window w1"><span class="w-header">Status<i class="fas fa-bars"></i></span> </div>
-        <div class="window w2"><span class="w-header">Monthly Expenses<i class="fas fa-file-invoice"></i></span> </div>
-        <div class="window w3"><span class="w-header">Summary<i class="fas fa-copy"></i></span> </div>
+        <div class="window w1"><span class="w-header">Status <i class="fas fa-bars"></i></span> </div>
+        <div class="window w2"><span class="w-header">Monthly Expenses <i class="fas fa-file-invoice"></i></span> </div>
+        <div class="window w3"><span class="w-header">Summary <i class="fas fa-copy"></i></span> </div>
         <div class="window w4"><span class="w-header">Currency <i class="fas fa-coins"></i></span></div>
 
 
     </div>
-    <!-- <div class="add-action">
+    <div class="add-action">
         <span>Add Action</span>
-    </div> -->
+    </div>
 
-    <i class="fas fa-plus-circle"></i>
-    <span class="show">click to hide</span>
-    <span class="hide">will hide</span>
+    <i class="fas fa-plus-circle" onclick="addButton()"></i>
+    <!-- <span class="show">click to hide</span>
+    <span class="hide">will hide</span> -->
 
 
 
