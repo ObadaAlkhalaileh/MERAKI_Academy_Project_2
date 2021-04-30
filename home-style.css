@@ -383,10 +383,36 @@
 
 .payment-list-des {
     position: absolute;
-    border: black solid;
     border-radius: 8px;
     height: 100%;
-    width: 31%;
-    top: -17px;
+    width: 25%;
+    top: -19px;
     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: decimal;
+}
+
+.payment-list-cost {
+    position: absolute;
+    height: 100%;
+    border-left: solid rgba(0, 0, 0, 0.6) 1px;
+    border-right: solid rgba(0, 0, 0, 0.6) 1px;
+    left: 33%;
+    width: 25%;
+    top: -19px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+}
+
+.payment-list-date {
+    position: absolute;
+    border-radius: 8px;
+    height: 100%;
+    left: 66%;
+    width: 25%;
+    top: -19px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
 }
