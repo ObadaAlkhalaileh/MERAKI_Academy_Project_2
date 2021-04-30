@@ -82,10 +82,11 @@ function renderList() {
         lii.append(payments[i].date)
 
         let bt = $(`<button>delete</button>`)
-
+        bt.addClass("delete-btn")
         bt.on('click', function() { ///////// it didnt work with function(i),, why??
             payments.splice(i, 1)
             renderList()
+            updateBalance()
         })
         lii.append(bt)
 
@@ -104,14 +105,15 @@ $(`#balance`).on('change', function() {
 
 //update balance
 let updatedBalance = 0
-$(`#addButton`).on('click', function() {
-    // updatedBalance = myBalance + Number($('#in2').val())
+const updateBalance = () => {
     updatedBalance = myBalance + payments.reduce(function(acc, elem) {
         return acc + elem.cost
     }, 0)
 
     $('#balance').val(updatedBalance)
-})
+}
+
+$(`#addButton`).on('click', function() { updateBalance() })
 
 //currency
 let cc = ""
