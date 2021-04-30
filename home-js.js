@@ -72,6 +72,7 @@ $(`#addButton`).on('click', function() {
     addPayment(a, b, c)
 })
 
+//render list function that needs to run after every addition of removal
 function renderList() {
     $(`.payment-list`).text("") //important to keep the counting right
     for (let i = 0; i < payments.length; i++) {
@@ -80,8 +81,8 @@ function renderList() {
         lii.append(" ( ", payments[i].cost, " ) ")
         lii.append(payments[i].date)
 
-        let bt = $(`<button class="delete-bt">delete</button>`)
-        console.log(i)
+        let bt = $(`<button>delete</button>`)
+
         bt.on('click', function() { ///////// it didnt work with function(i),, why??
             payments.splice(i, 1)
             renderList()
@@ -102,10 +103,14 @@ $(`#balance`).on('change', function() {
 })
 
 //update balance
+let updatedBalance = 0
 $(`#addButton`).on('click', function() {
-    myBalance = myBalance + Number($('#in2').val())
+    // updatedBalance = myBalance + Number($('#in2').val())
+    updatedBalance = myBalance + payments.reduce(function(acc, elem) {
+        return acc + elem.cost
+    }, 0)
 
-    $('#balance').val(myBalance)
+    $('#balance').val(updatedBalance)
 })
 
 //currency
