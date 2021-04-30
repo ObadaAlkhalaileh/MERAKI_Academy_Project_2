@@ -38,7 +38,8 @@
             </div>
         </div>
 
-        <input type="text" name="My Balance" id="balance" placeholder="Current Balance">
+        <input type="text" name="My Balance" id="balance" placeholder=" Balance">
+        <span id="curr"></span>
         <div class="dropdown">Theme
             <div class="dropdown-content">
                 <span class="dropdown-item1">Light</span>
@@ -59,7 +60,14 @@
         </div>
         <div class="window w2"><span class="w-header">Monthly Expenses <i class="fas fa-file-invoice"></i></span> </div>
         <div class="window w3"><span class="w-header">Summary <i class="fas fa-copy"></i></span> </div>
-        <div class="window w4"><span class="w-header">Currency <i class="fas fa-coins"></i></span></div>
+        <div class="window w4"><span class="w-header">Currency <i class="fas fa-coins"></i></span>
+            <select name="currency" id="currency">
+                <option value="JOD">JOD</option>
+                <option value="AED">AED</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
         <div class="window w5"><span class="w-header">Add Payment/Income <i class="fas fa-money-bill-wave"></i></span>
             <div class="add-flex">
                 <label id="l1" for="description">Description</label>
@@ -70,12 +78,7 @@
                 <input id="in3" type="date" id="date" name="date">
             </div>
             <button id="addButton"> ADD</button>
-            <!-- <select name="cars" id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select> -->
+
         </div>
 
 

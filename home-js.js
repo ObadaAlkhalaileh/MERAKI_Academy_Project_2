@@ -62,13 +62,6 @@ const addPayment = (description, cost, date) => {
 }
 
 
-//collect balance 
-let myBalance = 0
-$(`#balance`).on('change', function() {
-    myBalance = Number($('#balance').val())
-})
-
-
 //add payments to array function
 // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
 let a, b, c;
@@ -87,9 +80,23 @@ $(`#addButton`).on('click', function() {
     $(`.payment-list`).append(lii)
 })
 
+//collect balance 
+let myBalance = 0
+$(`#balance`).on('change', function() {
+    myBalance = Number($('#balance').val())
+})
 
 //update balance
 $(`#addButton`).on('click', function() {
     myBalance = myBalance + Number($('#in2').val())
+
     $('#balance').val(myBalance)
+})
+
+//currency
+let cc = ""
+$(`#currency`).on('change', function() {
+    $(`#curr`).text(" ")
+    let cc = $(`#currency`).val()
+    $(`#curr`).append(cc)
 })

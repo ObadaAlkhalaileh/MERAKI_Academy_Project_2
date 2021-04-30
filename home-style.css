@@ -162,7 +162,7 @@
 
 #balance {
     position: absolute;
-    width: 50%;
+    width: 40%;
     height: 40px;
     left: 50%;
     margin-left: -50px;
@@ -170,9 +170,17 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 8px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 2px;
+}
+
+#curr {
+    position: absolute;
+    right: 10%;
+    top: 9%;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .wallet {
@@ -375,22 +383,26 @@
     border: solid rgba(0, 0, 0, 0.418) 1px;
     border-radius: 8px;
     height: 70%;
-    width: 80%;
-    left: 50%;
+    width: 40%;
+    left: 30%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
 .payment-list {
-    border: solid black;
     position: absolute;
     border-radius: 8px;
     height: 100%;
-    width: 28%;
+    width: 90%;
     top: -19px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     list-style-type: decimal;
+}
+
+.payment-list li {
+    padding: 5px;
+    font-weight: bold;
 }
 
 .desc-header {
