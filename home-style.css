@@ -170,6 +170,7 @@
     border-radius: 8px;
     text-align: center;
     font-size: 1.1rem;
+    font-weight: bold;
     padding: 2px;
 }
 
@@ -196,7 +197,7 @@
     bottom: 75px;
     border-radius: 50%;
     border: solid rgba(0, 0, 0, 0.418) 1px;
-    box-shadow: 6px 6px 4px #999;
+    box-shadow: 6px 6px 4px rgb(94, 94, 94);
 }
 
 .fa-plus-circle:hover {
@@ -317,7 +318,8 @@
     min-height: 50px;
     font-size: 22px;
     border-radius: 8px;
-    color: rgba(187, 187, 187, .5);
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .add-flex label {
@@ -349,13 +351,13 @@
     left: 50%;
     bottom: 25%;
     transform: translate(-50%, -50%);
-    width: 100px;
+    width: 150px;
     font-size: 24px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #517581;
     border-radius: 8px;
-    box-shadow: 6px 6px 4px #999;
+    box-shadow: 6px 6px 4px rgb(94, 94, 94);
 }
 
 .w5 button:active {

@@ -45,19 +45,35 @@ $(`.dropdown-item2`).on("click", () => {
 
 
 const payments = []
-const addPayment = (description, value, date) => {
+const addPayment = (description, cost, date) => {
     let newPayment = {}
     newPayment.description = description
-    newPayment.value = value
+    newPayment.cost = cost
     newPayment.date = date
     payments.push(newPayment)
 }
 
+
+//collect balance 
+let myBalance = 0
+$(`#balance`).on('change', function() {
+    myBalance = Number($('#balance').val())
+})
+
+
+//add payments to array function
 // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
 let a, b, c;
 $(`#addButton`).on('click', function() {
     a = $(`#in1`).val()
-    b = $(`#in2`).val()
+    b = Number($(`#in2`).val())
     c = $(`#in3`).val()
     addPayment(a, b, c)
+})
+
+
+//update balance
+$(`#addButton`).on('click', function() {
+    myBalance = myBalance + Number($('#in2').val())
+    $('#balance').val(myBalance)
 })
