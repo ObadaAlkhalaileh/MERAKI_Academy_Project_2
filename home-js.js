@@ -1,22 +1,25 @@
 $(`.o1`).on("click", () => {
     $(`.w1`).fadeIn()
-    $(".w2,.w3,.w4").css("display", "none")
+    $(".w2,.w3,.w4,.w5").css("display", "none")
 })
-const showAloneO2 = () => {
+$(`.o2`).on("click", () => {
     $(`.w2`).fadeIn()
-    $(".w1,.w3,.w4").css("display", "none")
-}
-const showAloneO3 = () => {
+    $(".w1,.w3,.w4,.w5").css("display", "none")
+})
+$(`.o3`).on("click", () => {
     $(`.w3`).fadeIn()
-    $(".w1,.w2,.w4").css("display", "none")
-}
-const showAloneO4 = () => {
+    $(".w1,.w2,.w4,.w5").css("display", "none")
+})
+$(`.o4`).on("click", () => {
     $(`.w4`).fadeIn()
-    $(".w1,.w2,.w3").css("display", "none")
-}
-const addButton = () => {
+    $(".w1,.w2,.w3,.w5").css("display", "none")
+})
+$(`.fa-plus-circle`).on("click", () => {
+    $(`.w5`).fadeIn()
+    $(".w1,.w2,.w3,.w4").css("display", "none")
     $(`.add-action`).fadeOut()
-}
+})
+
 
 $(`.dropdown-item1`).on("click", () => {
     $(`body`).css("background-color", "white")
