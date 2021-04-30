@@ -17,11 +17,13 @@ $(`.o3`).on("click", () => {
 $(`.o4`).on("click", () => {
     $(`.w4`).fadeIn();
     $(".w1,.w2,.w3,.w5").css("display", "none");
+    $(".track").css("display", "none");
 });
 $(`.fa-plus-circle`).on("click", () => {
     $(`.w5`).fadeIn();
     $(".w1,.w2,.w3,.w4").css("display", "none");
     $(`.add-action`).fadeOut();
+    $(".track").css("display", "block");
     $(".track").css("transform", "translateY(-250px)");
 
 });
@@ -33,7 +35,7 @@ $(`.dropdown-item1`).on("click", () => {
     $(`.fa-plus-circle`).css("background-color", "transparent")
     $(`.add-action`).css("background-image", 'url(chat-bubble-flipped.png)')
     $(`input`).css('background-color', 'white')
-    $(`.track`).css('color', 'rgba(81, 117, 129, 0.65)')
+    $(`.track`).css('color', 'rgba(191, 199, 217, .7)')
     $(`.status`).css('background-color', 'whitesmoke')
 
 })
@@ -41,11 +43,11 @@ $(`.dropdown-item1`).on("click", () => {
 //dark theme
 $(`.dropdown-item2`).on("click", () => {
     $(`body`).css("background-color", "#626673")
-    $(`.top`).css("background-color", "#517581")
+    $(`.top`).css("background-color", "#047E8F")
     $(`.fa-plus-circle`).css("background-color", "#999")
     $(`.add-action`).css("background-image", 'url(dark.png)')
-    $(`input`).css('background-color', 'rgba(187, 187, 187,1)')
-    $(`.track`).css('color', 'rgba(191, 199, 217, .5)')
+    $(`input`).css('background-color', '#bfc7d9')
+    $(`.track`).css('color', 'rgba(4, 126, 143, .75)')
     $(`.status`).css('background-color', 'rgba(187, 187, 187,.5)')
 })
 
