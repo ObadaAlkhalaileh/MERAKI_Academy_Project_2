@@ -26,7 +26,7 @@ $(`.dropdown-item1`).on("click", () => {
     $(`.top`).css("background-color", "#bfc7d9")
     $(`.fa-plus-circle`).css("background-color", "transparent")
     $(`.add-action`).css("background-image", 'url(chat-bubble-flipped.png)')
-    $(`#balance`).css('background-color', 'white')
+    $(`input`).css('background-color', 'white')
     $(`.track`).css('color', 'rgba(81, 117, 129, 0.65)')
 })
 
@@ -36,7 +36,7 @@ $(`.dropdown-item2`).on("click", () => {
     $(`.top`).css("background-color", "#517581")
     $(`.fa-plus-circle`).css("background-color", "#999")
     $(`.add-action`).css("background-image", 'url(dark.png)')
-    $(`#balance`).css('background-color', 'rgba(153, 153, 153, 1)')
+    $(`input`).css('background-color', 'rgba(187, 187, 187,1)')
     $(`.track`).css('color', 'rgba(191, 199, 217, .5)')
 })
 const payments = []
