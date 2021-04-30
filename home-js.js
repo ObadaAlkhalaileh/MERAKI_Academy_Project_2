@@ -1,3 +1,4 @@
+//tabs show and hide
 $(`.o1`).on("click", () => {
     $(`.w1`).fadeIn()
     $(".w2,.w3,.w4,.w5").css("display", "none")
@@ -39,11 +40,24 @@ $(`.dropdown-item2`).on("click", () => {
     $(`input`).css('background-color', 'rgba(187, 187, 187,1)')
     $(`.track`).css('color', 'rgba(191, 199, 217, .5)')
 })
+
+//functionality
+
+
 const payments = []
 const addPayment = (description, value, date) => {
     let newPayment = {}
     newPayment.description = description
     newPayment.value = value
     newPayment.date = date
-    return payments.push(newPayment)
+    payments.push(newPayment)
 }
+
+// $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
+let a, b, c;
+$(`#addButton`).on('click', function() {
+    a = $(`#in1`).val()
+    b = $(`#in2`).val()
+    c = $(`#in3`).val()
+    addPayment(a, b, c)
+})
