@@ -1,5 +1,5 @@
 #body {
-    background-color: white;
+    background-color: whitesmoke;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -114,6 +114,7 @@
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
+    transition: ease .25 transform;
 }
 
 .track:hover {
@@ -366,4 +367,16 @@
 
 .w5 button:hover {
     cursor: pointer;
+}
+
+.status {
+    position: absolute;
+    background-color: whitesmoke;
+    border: solid rgba(0, 0, 0, 0.418) 1px;
+    border-radius: 8px;
+    height: 70%;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
