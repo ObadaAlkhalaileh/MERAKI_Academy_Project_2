@@ -380,3 +380,13 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.payment-list-des {
+    position: absolute;
+    border: black solid;
+    border-radius: 8px;
+    height: 100%;
+    width: 31%;
+    top: -17px;
+    font-size: 20px;
+}

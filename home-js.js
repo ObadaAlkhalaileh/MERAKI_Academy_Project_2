@@ -23,6 +23,7 @@ $(`.fa-plus-circle`).on("click", () => {
     $(".w1,.w2,.w3,.w4").css("display", "none");
     $(`.add-action`).fadeOut();
     $(".track").css("transform", "translateY(-250px)");
+
 });
 
 //light theme
@@ -76,6 +77,22 @@ $(`#addButton`).on('click', function() {
     b = Number($(`#in2`).val())
     c = $(`#in3`).val()
     addPayment(a, b, c)
+
+    let lii = $(`<li> </li>`)
+    let sp1 = $(`<span></span>`)
+    sp1.append(a)
+    lii.append(sp1)
+    lii.append("       ")
+
+    let sp2 = $(`<span></span>`)
+    sp2.append(b)
+    lii.append(sp2)
+
+    let sp3 = $(`<span></span>`)
+    sp3.append(c)
+    lii.append(sp3)
+
+    $(`.payment-list-des`).append(lii)
 })
 
 
