@@ -78,17 +78,13 @@ $(`#addButton`).on('click', function() {
     c = $(`#in3`).val()
     addPayment(a, b, c)
 
-    let li1 = $(`<li> </li>`)
-    li1.append(a)
-    $(`.payment-list-des`).append(li1)
+    let lii = $(`<li> </li>`)
+    lii.append(a)
 
-    let li2 = $(`<li> </li>`)
-    li2.append(b)
-    $(`.payment-list-cost`).append(li2)
+    lii.append(" ( ", b, " ) ")
+    lii.append(c)
 
-    let li3 = $(`<li> </li>`)
-    li3.append(c)
-    $(`.payment-list-date`).append(li3)
+    $(`.payment-list`).append(lii)
 })
 
 

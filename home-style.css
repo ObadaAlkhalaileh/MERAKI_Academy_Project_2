@@ -381,38 +381,23 @@
     transform: translate(-50%, -50%);
 }
 
-.payment-list-des {
+.payment-list {
+    border: solid black;
     position: absolute;
     border-radius: 8px;
     height: 100%;
-    width: 25%;
+    width: 28%;
     top: -19px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     list-style-type: decimal;
 }
 
-.payment-list-cost {
+.desc-header {
     position: absolute;
-    height: 100%;
-    border-left: solid rgba(0, 0, 0, 0.6) 1px;
-    border-right: solid rgba(0, 0, 0, 0.6) 1px;
-    left: 33%;
-    width: 25%;
-    top: -19px;
+    top: 9%;
+    left: 16%;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: none;
-}
-
-.payment-list-date {
-    position: absolute;
-    border-radius: 8px;
-    height: 100%;
-    left: 66%;
-    width: 25%;
-    top: -19px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    list-style-type: none;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
