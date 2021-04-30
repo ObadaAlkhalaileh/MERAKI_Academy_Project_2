@@ -26,6 +26,7 @@
     top: 10%;
     width: 20%;
     height: 90vh;
+    margin-top: 1px;
     background-color: #86907e;
     background-color: #517581;
     border-top-right-radius: 8px;
@@ -49,7 +50,7 @@
     text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     letter-spacing: 4px;
 }
 
@@ -88,8 +89,9 @@
 }
 
 .dropdown:hover {
-    background-color: #bfc7d9;
+    color: #bfc7d9;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
@@ -97,8 +99,10 @@
 }
 
 .dropdown-content span:hover {
-    background-color: #bfc7d9;
+    background-color: black;
     border-radius: 5px;
+    transform: translateX(3px);
+    transition: ease 0.25s transform;
 }
 
 .track {
@@ -131,6 +135,14 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.w-header {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+}
+
 .for {
     position: absolute;
     font-size: 1.2rem;
@@ -152,7 +164,7 @@
     margin-left: -50px;
     top: 50px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     font-size: 1.1rem;
     padding: 2px;
@@ -190,7 +202,49 @@
 }
 
 .fa-plus-circle:active {
+    transition: ease 0.1s transform;
     transform: translateY(3px);
+    box-shadow: 2px 2px 4px #999;
+}
+
+
+/* .add-action {
+    position: fixed;
+    display: block;
+    background-image: url(./chat-bubble-flipped.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 120px;
+    right: 10%;
+    bottom: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+
+/* .fa-plus-circle:hover+.add-action {
+    display: none;
+} */
+
+
+/* .hide,
+.show {
+    position: relative;
+    position: fixed;
+    left: 500px;
+    top: 500px;
+}
+
+.show:hover+.hide {
+    display: none;
+} */
+
+.add-action span {
+    position: relative;
+    top: 47%;
+    transform: translateY(-50%);
 }
 
 .hr1 {
