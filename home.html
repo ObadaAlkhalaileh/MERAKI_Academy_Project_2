@@ -16,7 +16,7 @@
 
     <div class="main-div top">
         <span class="main-header">My Wallet</span>
-
+        <span class="header-name"></span>
     </div>
 
     <div class="main-div side">
@@ -25,20 +25,20 @@
         <hr class="hr1">
         <div class="container1">
             <div class="option o1">
-                <p class="item"> Status <i class="fas fa-bars"></i></p>
+                <p class="item"> Record <i class="fas fa-bars"></i></p>
             </div>
             <div class="option o2">
-                <p class="item"> Monthly Expenses <i class="fas fa-file-invoice"></i></p>
+                <p class="item"> Monthly Expenses <i class="fas fa-copy"></i></p>
             </div>
             <div class="option o3">
-                <p class="item"> Summary <i class="fas fa-copy"></i></p>
+                <p class="item"> Summary <i class="fas fa-file-invoice"></i> </p>
             </div>
             <div class="option o4">
                 <p class="item"> Currency <i class="fas fa-coins"></i></p>
             </div>
         </div>
 
-        <input type="text" name="My Balance" id="balance" placeholder=" Balance">
+        <input type="text" name="My Balance" id="balance" placeholder=" Balance" disabled>
         <span id="curr"></span>
         <div class="dropdown">Theme
             <div class="dropdown-content">
@@ -48,15 +48,23 @@
         </div>
     </div>
     <div class="work-space">
-        <span class="track">Track Your <i class="fas fa-money-bill-wave"></i></span>
-        <div class="window w1"><span class="w-header">Status <i class="fas fa-bars"></i></span>
-            <div class="status">
+        <span id="data-button" class="track">Track Your <i class="fas fa-money-bill-wave"></i></span>
+
+        <div class="data-container">
+            <input id="username" class="data" type="text" name="username" placeholder="Enter Your Name">
+            <input id="account" class="data" type="number" name="account" placeholder="Enter Your Balance">
+        </div>
+
+
+        <div class="window w1"><span class="w-header">Record <i class="fas fa-bars"></i></span>
+            <div class="record">
                 <ul class="payment-list">
                 </ul>
             </div>
+            <span id="ex-list">Expenses List</span>
         </div>
-        <div class="window w2"><span class="w-header">Monthly Expenses <i class="fas fa-file-invoice"></i></span> </div>
-        <div class="window w3"><span class="w-header">Summary <i class="fas fa-copy"></i></span> </div>
+        <div class="window w2"><span class="w-header">Monthly Expenses <i class="fas fa-copy"></i></span> </div>
+        <div class="window w3"><span class="w-header">Summary <i class="fas fa-file-invoice"></i></span> </div>
         <div class="window w4"><span class="w-header">Currency <i class="fas fa-coins"></i></span>
             <select name="currency" id="currency">
                 <option value="JOD">JOD</option>
@@ -64,6 +72,13 @@
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
             </select>
+            <div class="currencies">
+                <img class="jod" src="./jod.jpg" alt="JOD">
+                <img class="aed" src="./AED.jpg" alt="AED">
+                <img class="usd" src="./usd.jpeg" alt="USD">
+                <img class="eur" src="./euro.jpg" alt="EUR">
+            </div>
+            <span class="pick">Pick a Currency</span>
         </div>
         <div class="window w5"><span class="w-header">Add Payment/Income <i class="fas fa-money-bill-wave"></i></span>
             <div class="add-flex">
@@ -75,9 +90,7 @@
                 <input id="in3" type="date" id="date" name="date">
             </div>
             <button id="addButton"> ADD</button>
-
         </div>
-
 
     </div>
     <div class="add-action">

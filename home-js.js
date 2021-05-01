@@ -47,13 +47,45 @@ $(`.dropdown-item2`).on("click", () => {
     $(`.fa-plus-circle`).css("background-color", "#999")
     $(`.add-action`).css("background-image", 'url(dark.png)')
     $(`input`).css('background-color', '#bfc7d9')
-    $(`.track`).css('color', 'rgba(4, 126, 143, .75)')
+    $(`.track`).css({
+        'color': 'rgba(4, 126, 143, .75)',
+        'text-shadow': '-1px 1px 0 #575757, 1px 1px 0 #535252'
+
+    })
     $(`.status`).css('background-color', 'rgba(187, 187, 187,.7)')
 })
 
+
+//user data
+let balance = 0
+$(`#data-button`).on('click', function() {
+    balance = Number($(`#account`).val())
+    let user = $(`#username`).val()
+
+    $(`#balance`).val(balance)
+    $(`.header-name`).append(user)
+})
+
+$(`#data-button`).on('click', function() {
+    $(`.data-container`).fadeOut()
+    $(`#data-button`).fadeOut()
+
+})
+
+// $(`#username`).on('change', function() {
+//     // setInterval(function() {
+//     //     if ($(`#data-button`).css('border') === 'none') {
+//     //         $(`#data-button`).css('color', 'rgba(4, 126, 143, .8)')
+// })
+//     //     } else {
+//     //         $(`#data-button`).css('border', 'none')
+//     //     }
+//     // }, 500)
+//     $(`#data-button`).css('color', 'rgba(4, 126, 143, .8)')
+// })
+
+
 //functionality
-
-
 const payments = []
 const addPayment = (description, cost, date) => {
     let newPayment = {}
@@ -83,7 +115,7 @@ function renderList() {
         lii.append(" ( ", payments[i].cost, " ) ")
         lii.append(payments[i].date)
 
-        let bt = $(`<button>delete</button>`)
+        let bt = $(`<i class="fas fa-backspace"></i>`)
         bt.addClass("delete-btn")
         bt.on('click', function() { ///////// it didnt work with function(i),, why??
             payments.splice(i, 1)
@@ -100,22 +132,29 @@ $(`#addButton`).on('click', function() { renderList() }) //// it doesnt work wit
 
 
 //collect balance 
-let myBalance = 0
-$(`#balance`).on('change', function() {
-    myBalance = Number($('#balance').val())
-})
+// $(`#balance`).on('change', function() {
+//     myBalance = Number($('#balance').val())
+// })
 
 //update balance
 let updatedBalance = 0
 const updateBalance = () => {
-    updatedBalance = myBalance + payments.reduce(function(acc, elem) {
+    updatedBalance = balance + payments.reduce(function(acc, elem) {
         return acc + elem.cost
     }, 0)
 
     $('#balance').val(updatedBalance)
 }
 
-$(`#addButton`).on('click', function() { updateBalance() })
+$(`#addButton`).on('click', function() { updateBalance() }) //// it doesnt work without this structure
+
+//clear inputs after addition
+$(`#addButton`).on('click', function() {
+    $(`#in1`).val('')
+    $(`#in2`).val(0)
+    $(`#in3`).val('')
+
+})
 
 //currency
 let cc = ""
