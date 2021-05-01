@@ -46,29 +46,31 @@ $(`.fa-plus-circle`).on("click", () => {
 
 //light theme
 $(`.dropdown-item1`).on("click", () => {
-    $(`body`).css("background-color", "whitesmoke");
+    $(`body`).css("background-image", "url(money2.jpg)");
     $(`.top`).css("background-color", "#bfc7d9");
-    $(`.fa-plus-circle`).css("background-color", "transparent");
+    $(`.side`).css("background-color", "#07A6A4");
+    $(`.fa-plus-circle`).css("background-color", "whitesmoke");
     $(`.add-action`).css("background-image", 'url(chat-bubble-flipped.png)');
-    $(`input`).css('background-color', 'white');
-    $(`.track`).css('color', 'rgba(191, 199, 217, .7)');
-    $(`.status`).css('background-color', 'whitesmoke');
-
+    $(`input`).css('background-color', 'whitesmoke');
+    $(`.track`).css('background-color', '#07A6A4');
+    $(`.window`).css('background-color', 'rgba(191, 199, 217, 0.75)')
+    $(`.record`).css('background-color', 'whitesmoke');
+    $(`#currency`).css('background-color', 'whitesmoke');
 });
 
 //dark theme
 $(`.dropdown-item2`).on("click", () => {
-    $(`body`).css("background-color", "#626673");
+    $(`body`).css("background-image", "url(money2dark.jpg)");
     $(`.top`).css("background-color", "#047E8F");
-    $(`.fa-plus-circle`).css("background-color", "#999");
+    $(`.side`).css("background-color", "#047E8F");
+    $(`.fa-plus-circle`).css("background-color", "#bfc7d9");
     $(`.add-action`).css("background-image", 'url(dark.png)');
     $(`input`).css('background-color', '#bfc7d9');
-    $(`.track`).css({
-        'color': 'rgba(4, 126, 143, .75)',
-        'text-shadow': '-1px 1px 0 #575757, 1px 1px 0 #535252'
-
-    });
-    $(`.status`).css('background-color', 'rgba(187, 187, 187,.7)');
+    $(`.track`).css('background-color', '#047E8F', );
+    $(`.window`).css('background-color', 'rgba(138, 138, 138, 0.6)');
+    $(`.record`).css('background-color', 'rgba(138, 138, 138, 1)');
+    $(`#currency`).css('background-color', '#bfc7d9');
+    // $(`p,span,input,div,select`).css('color', '#F29F05');
 })
 
 

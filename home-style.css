@@ -31,6 +31,7 @@
     margin-top: 1px;
     background-color: #86907e;
     background-color: #047E8F;
+    background-color: #07A6A4;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -97,7 +98,7 @@
     font-size: 40px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #047E8F;
+    background-color: #07A6A4;
     border-radius: 10px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
     border: black solid 1px;
@@ -194,7 +195,7 @@
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(81, 117, 129, 0.3);
+    background-color: rgba(138, 138, 138, 0.3);
     background-color: rgba(191, 199, 217, 0.75);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -265,7 +266,7 @@
     font-size: 80px;
     color: #829924;
     color: #86907e;
-    color: #047E8F;
+    color: #07A6A4;
     right: 75px;
     bottom: 75px;
     border-radius: 50%;
@@ -298,23 +299,6 @@
     bottom: 0;
     text-align: center;
 }
-
-
-/* .fa-plus-circle:hover+.add-action {
-    display: none;
-} */
-
-
-/* .hide,
-.show {
-    position: relative;
-    position: fixed;
-    left: 500px;
-    top: 500px;
-}
-.show:hover+.hide {
-    display: none;
-} */
 
 .add-action span {
     position: relative;
@@ -429,7 +413,7 @@
     font-size: 24px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #047E8F;
+    background-color: #07A6A4;
     border-radius: 10px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
 }
@@ -571,13 +555,13 @@
 
 .qoute {
     position: absolute;
-    width: 35%;
+    width: 40%;
     height: 20%;
-    right: 8%;
-    top: 55%;
+    right: 5%;
+    top: 50%;
     transform: translateY(-50%);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -611,8 +595,14 @@
     font-weight: bold;
     /* text-shadow: 2px 3px 1.5px rgba(0, 0, 0, 0.3); */
     text-shadow: -1px 1px 0 #5757576c, 1px 1px 0 #5352526e;
-    background-color: #bfc7d9;
+    background-color: rgba(191, 199, 217, .7);
     line-height: 48px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding-right: 5px;
+    padding-left: 8px;
+}
+
+.header-name2:hover {
+    cursor: default;
 }
