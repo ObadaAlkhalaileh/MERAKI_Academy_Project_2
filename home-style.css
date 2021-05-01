@@ -234,7 +234,7 @@
     background-color: whitesmoke;
     border-radius: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
@@ -486,7 +486,7 @@
 #currency {
     position: absolute;
     left: 12%;
-    top: 40%;
+    top: 47%;
     font-size: 25px;
     padding: 10px;
     border-radius: 10px;
@@ -501,7 +501,7 @@
     height: 120px;
     width: 600px;
     left: 35%;
-    top: 10%;
+    top: 25%;
 }
 
 .jod {
@@ -509,6 +509,7 @@
     left: 35%;
     top: 10%;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .aed {
@@ -516,6 +517,7 @@
     left: 65%;
     top: 10%;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .usd {
@@ -523,6 +525,7 @@
     left: 35%;
     top: 50%;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .eur {
@@ -530,6 +533,7 @@
     left: 67%;
     top: 50%;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .delete-btn {
@@ -555,7 +559,7 @@
 .pick {
     position: absolute;
     left: 9%;
-    top: 33%;
+    top: 37%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 22px;
     font-weight: bold;

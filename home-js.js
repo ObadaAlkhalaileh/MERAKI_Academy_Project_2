@@ -30,45 +30,45 @@ $(`.fa-plus-circle`).on("click", () => {
 
 //light theme
 $(`.dropdown-item1`).on("click", () => {
-    $(`body`).css("background-color", "whitesmoke")
-    $(`.top`).css("background-color", "#bfc7d9")
-    $(`.fa-plus-circle`).css("background-color", "transparent")
-    $(`.add-action`).css("background-image", 'url(chat-bubble-flipped.png)')
-    $(`input`).css('background-color', 'white')
-    $(`.track`).css('color', 'rgba(191, 199, 217, .7)')
-    $(`.status`).css('background-color', 'whitesmoke')
+    $(`body`).css("background-color", "whitesmoke");
+    $(`.top`).css("background-color", "#bfc7d9");
+    $(`.fa-plus-circle`).css("background-color", "transparent");
+    $(`.add-action`).css("background-image", 'url(chat-bubble-flipped.png)');
+    $(`input`).css('background-color', 'white');
+    $(`.track`).css('color', 'rgba(191, 199, 217, .7)');
+    $(`.status`).css('background-color', 'whitesmoke');
 
-})
+});
 
 //dark theme
 $(`.dropdown-item2`).on("click", () => {
-    $(`body`).css("background-color", "#626673")
-    $(`.top`).css("background-color", "#047E8F")
-    $(`.fa-plus-circle`).css("background-color", "#999")
-    $(`.add-action`).css("background-image", 'url(dark.png)')
-    $(`input`).css('background-color', '#bfc7d9')
+    $(`body`).css("background-color", "#626673");
+    $(`.top`).css("background-color", "#047E8F");
+    $(`.fa-plus-circle`).css("background-color", "#999");
+    $(`.add-action`).css("background-image", 'url(dark.png)');
+    $(`input`).css('background-color', '#bfc7d9');
     $(`.track`).css({
         'color': 'rgba(4, 126, 143, .75)',
         'text-shadow': '-1px 1px 0 #575757, 1px 1px 0 #535252'
 
-    })
-    $(`.status`).css('background-color', 'rgba(187, 187, 187,.7)')
+    });
+    $(`.status`).css('background-color', 'rgba(187, 187, 187,.7)');
 })
 
 
 //user data
 let balance = 0
 $(`#data-button`).on('click', function() {
-    balance = Number($(`#account`).val())
-    let user = $(`#username`).val()
+    balance = Number($(`#account`).val());
+    let user = $(`#username`).val();
 
-    $(`#balance`).val(balance)
-    $(`.header-name`).append(user)
+    $(`#balance`).val(balance);
+    $(`.header-name`).append(user);
 })
 
 $(`#data-button`).on('click', function() {
-    $(`.data-container`).fadeOut()
-    $(`#data-button`).fadeOut()
+    $(`.data-container`).fadeOut();
+    $(`#data-button`).fadeOut();
 
 })
 
@@ -86,49 +86,49 @@ $(`#data-button`).on('click', function() {
 
 
 //functionality
-const payments = []
+const payments = [];
 const addPayment = (description, cost, date) => {
-    let newPayment = {}
-    newPayment.description = description
-    newPayment.cost = cost
-    newPayment.date = date
-    payments.push(newPayment)
-}
+    let newPayment = {};
+    newPayment.description = description;
+    newPayment.cost = cost;
+    newPayment.date = date;
+    payments.push(newPayment);
+};
 
 
 //add payments to array function
 // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
 let a, b, c;
 $(`#addButton`).on('click', function() {
-    a = $(`#in1`).val()
-    b = Number($(`#in2`).val())
-    c = $(`#in3`).val()
-    addPayment(a, b, c)
-})
+    a = $(`#in1`).val();
+    b = Number($(`#in2`).val());
+    c = $(`#in3`).val();
+    addPayment(a, b, c);
+});
 
 //render list function that needs to run after every addition of removal
 function renderList() {
-    $(`.payment-list`).text("") //important to keep the counting right
+    $(`.payment-list`).text(""); //important to keep the counting right
     for (let i = 0; i < payments.length; i++) {
-        let lii = $(`<li> </li>`)
-        lii.append(payments[i].description)
-        lii.append(" ( ", payments[i].cost, " ) ")
-        lii.append(payments[i].date)
+        let lii = $(`<li> </li>`);
+        lii.append(payments[i].description);
+        lii.append(" ( ", payments[i].cost, " ) ");
+        lii.append(payments[i].date);
 
-        let bt = $(`<i class="fas fa-backspace"></i>`)
-        bt.addClass("delete-btn")
+        let bt = $(`<i class="fas fa-backspace"></i>`);
+        bt.addClass("delete-btn");
         bt.on('click', function() { ///////// it didnt work with function(i),, why??
-            payments.splice(i, 1)
-            renderList()
-            updateBalance()
-        })
-        lii.append(bt)
+            payments.splice(i, 1);
+            renderList();
+            updateBalance();
+        });
+        lii.append(bt);
 
-        $(`.payment-list`).append(lii)
+        $(`.payment-list`).append(lii);
     }
 }
 
-$(`#addButton`).on('click', function() { renderList() }) //// it doesnt work without this structure
+$(`#addButton`).on('click', function() { renderList() }); //// it doesnt work without this structure
 
 
 //collect balance 
@@ -141,25 +141,25 @@ let updatedBalance = 0
 const updateBalance = () => {
     updatedBalance = balance + payments.reduce(function(acc, elem) {
         return acc + elem.cost
-    }, 0)
+    }, 0);
 
-    $('#balance').val(updatedBalance)
-}
+    $('#balance').val(updatedBalance);
+};
 
-$(`#addButton`).on('click', function() { updateBalance() }) //// it doesnt work without this structure
+$(`#addButton`).on('click', function() { updateBalance() }); //// it doesnt work without this structure
 
 //clear inputs after addition
 $(`#addButton`).on('click', function() {
-    $(`#in1`).val('')
-    $(`#in2`).val(0)
-    $(`#in3`).val('')
+    $(`#in1`).val('');
+    $(`#in2`).val(0);
+    $(`#in3`).val('');
 
-})
+});
 
 //currency
 let cc = ""
 $(`#currency`).on('change', function() {
-    $(`#curr`).text(" ")
-    let cc = $(`#currency`).val()
-    $(`#curr`).append(cc)
-})
+    $(`#curr`).text(" ");
+    let cc = $(`#currency`).val();
+    $(`#curr`).append(cc);
+});
