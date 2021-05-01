@@ -1,3 +1,7 @@
+function clickSound() {
+    click.play()
+}
+
 //tabs show and hide
 $(`.o1`).on("click", () => {
     $(`.w1`).fadeIn();
@@ -56,6 +60,8 @@ $(`.dropdown-item1`).on("click", () => {
     $(`.window`).css('background-color', 'rgba(191, 199, 217, 0.75)')
     $(`.record`).css('background-color', 'whitesmoke');
     $(`#currency`).css('background-color', 'whitesmoke');
+    $(`.fa-plus-circle`).css("color", "#07A6A4");
+    $(`#addButton`).css("background-color", "#07A6A4");
 });
 
 //dark theme
@@ -70,6 +76,8 @@ $(`.dropdown-item2`).on("click", () => {
     $(`.window`).css('background-color', 'rgba(138, 138, 138, 0.6)');
     $(`.record`).css('background-color', 'rgba(138, 138, 138, 1)');
     $(`#currency`).css('background-color', '#bfc7d9');
+    $(`.fa-plus-circle`).css("color", "#047E8F");
+    $(`#addButton`).css("background-color", "#047E8F");
     // $(`p,span,input,div,select`).css('color', '#F29F05');
 })
 

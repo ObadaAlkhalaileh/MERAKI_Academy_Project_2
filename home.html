@@ -24,16 +24,16 @@
         <span class="for">For Better Control...</span>
         <hr class="hr1">
         <div class="container1">
-            <div class="option o1">
+            <div class="option o1" onclick="clickSound()">
                 <p class="item"> Record <i class="fas fa-bars"></i></p>
             </div>
-            <div class="option o2">
+            <div class="option o2" onclick="clickSound()">
                 <p class="item"> Monthly Expenses <i class="fas fa-copy"></i></p>
             </div>
-            <div class="option o3">
+            <div class="option o3" onclick="clickSound()">
                 <p class="item"> Summary <i class="fas fa-file-invoice"></i> </p>
             </div>
-            <div class="option o4">
+            <div class="option o4" onclick="clickSound()">
                 <p class="item"> Currency <i class="fas fa-coins"></i></p>
             </div>
         </div>
@@ -42,8 +42,8 @@
         <span id="curr"></span>
         <div class="dropdown">Theme
             <div class="dropdown-content">
-                <span class="dropdown-item1">Light</span>
-                <span class="dropdown-item2">Dark</span>
+                <span class="dropdown-item1" onclick="clickSound()">Light</span>
+                <span class="dropdown-item2" onclick="clickSound()">Dark</span>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                 <label id="l3" for="date">Date</label>
                 <input id="in3" type="date" id="date" name="date">
             </div>
-            <button id="addButton"> ADD</button>
+            <button id="addButton" onclick="clickSound()"> ADD</button>
         </div>
 
     </div>
@@ -100,9 +100,9 @@
         <span>Add Action</span>
     </div>
 
-    <i class="fas fa-plus-circle"></i>
+    <i class="fas fa-plus-circle" onclick="clickSound()"></i>
 
-
+    <audio id="click" src="./click2.mp3"></audio>
     <script src="./home-js.js"></script>
 </body>
 
