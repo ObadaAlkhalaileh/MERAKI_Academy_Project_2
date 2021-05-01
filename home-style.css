@@ -71,7 +71,7 @@
 
 .data-container {
     position: absolute;
-    top: 15%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -88,21 +88,21 @@
     font-weight: bold;
 }
 
-
-/* #data-button {
+#data-button {
     position: absolute;
-    left: 50%;
-    top: 28%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 40px;
-    font-size: 24px;
+    left: 22.5%;
+    top: 45%;
+    width: 680px;
+    height: 60px;
+    font-size: 40px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #047E8F;
     border-radius: 10px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
-} */
+    border: black solid 1px;
+    padding-top: 8px;
+}
 
 #data-button:active {
     box-shadow: 2px 2px 4px #999;
@@ -110,6 +110,8 @@
 
 #data-button:hover {
     cursor: pointer;
+    transition: ease 0.25s transform;
+    transform: scale(1.1);
 }
 
 .main-header:hover {
@@ -169,11 +171,10 @@
     width: 80%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     font-size: 120px;
     font-family: cursive;
     /* color: rgba(191, 199, 217, .7); */
-    color: rgba(4, 126, 143, .4);
+    color: black;
     text-align: center;
     text-shadow: -1px 1px 0 #5757576c, 1px 1px 0 #5352526e, 1px -1px 0 #3d3d3d75, -1px -1px 0 #36363677;
 }
@@ -271,6 +272,7 @@
     border-radius: 50%;
     border: solid rgba(0, 0, 0, 0.418) 1px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
+    background-color: whitesmoke;
 }
 
 .fa-plus-circle:hover {
@@ -498,14 +500,14 @@
     flex-wrap: wrap;
     gap: 40px;
     position: absolute;
-    height: 120px;
-    width: 600px;
-    left: 35%;
-    top: 25%;
+    height: 140px;
+    width: 750px;
+    left: 32%;
+    top: 20%;
 }
 
 .jod {
-    height: 120px;
+    height: 140px;
     left: 35%;
     top: 10%;
     border-radius: 10px;
@@ -513,7 +515,7 @@
 }
 
 .aed {
-    height: 120px;
+    height: 140px;
     left: 65%;
     top: 10%;
     border-radius: 10px;
@@ -521,7 +523,7 @@
 }
 
 .usd {
-    height: 120px;
+    height: 140px;
     left: 35%;
     top: 50%;
     border-radius: 10px;
@@ -529,7 +531,7 @@
 }
 
 .eur {
-    height: 120px;
+    height: 140px;
     left: 67%;
     top: 50%;
     border-radius: 10px;
@@ -552,6 +554,7 @@
     left: 22%;
     top: 8%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
     font-size: 22px;
     font-weight: bold;
 }
@@ -560,6 +563,18 @@
     position: absolute;
     left: 9%;
     top: 37%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.qoute {
+    position: absolute;
+    width: 35%;
+    height: 20%;
+    right: 8%;
+    top: 55%;
+    transform: translateY(-50%);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 22px;
     font-weight: bold;

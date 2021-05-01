@@ -63,6 +63,7 @@ $(`#data-button`).on('click', function() {
     let user = $(`#username`).val();
 
     $(`#balance`).val(balance);
+    $(`.header-name`).text('');
     $(`.header-name`).append(user);
 })
 
