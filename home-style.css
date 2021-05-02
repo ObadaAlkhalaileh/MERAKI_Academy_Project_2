@@ -464,7 +464,7 @@
     list-style-type: decimal;
 }
 
-.payment-list1 {
+.income-list {
     position: absolute;
     border-radius: 10px;
     left: -40px;
@@ -486,7 +486,7 @@
     font-weight: bold;
 }
 
-#ex-list1 {
+#in-list {
     position: absolute;
     right: 20%;
     top: 8%;
