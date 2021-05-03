@@ -373,7 +373,7 @@
 #in4 {
     position: absolute;
     height: 50px;
-    left: 13%;
+    left: 17%;
     bottom: 28%;
     width: 110px;
     min-height: 50px;
@@ -510,6 +510,15 @@
 }
 
 .expense-list li {
+    line-height: 180%;
+    border-radius: 7px;
+    padding-left: -30px;
+    font-weight: bold;
+    background-color: rgba(4, 126, 143, 0.5);
+    border: solid rgba(0, 0, 0, 0.418) 1px;
+}
+
+.income-list li {
     line-height: 180%;
     border-radius: 7px;
     padding-left: -30px;
