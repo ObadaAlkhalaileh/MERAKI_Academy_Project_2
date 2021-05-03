@@ -94,8 +94,12 @@ let balance = 0
 $(`#data-button`).on('click', function() {
     balance = Number($(`#account`).val());
     let user = $(`#username`).val();
+
+    localStorage.setItem('user', user)
+    localStorage.setItem('balance', balance)
+
     $(`#balance`).val(balance);
-    $(`.header-name`).text('');
+    // $(`.header-name`).text('');
     $(`.header-name`).append(user);
 })
 $(`#data-button`).on('click', function() {
@@ -143,6 +147,13 @@ const filterTransactions = () => {
 
 //on refresh event listener ..function to restore all the changes by local storage 
 window.onload = function() {
+        //to reshow username and balance
+        balance = JSON.parse(localStorage.getItem('balance'))
+        user = localStorage.getItem('user')
+
+        $(`#balance`).val(balance);
+        $(`.header-name`).append(user);
+
         if (!(!localStorage.getItem('expenseItems') === true)) { // this condittion was added in case the user refresh before adding anything
             expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
             incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
