@@ -370,6 +370,19 @@
     column-gap: 50px;
 }
 
+#in4 {
+    position: absolute;
+    height: 50px;
+    left: 13%;
+    bottom: 28%;
+    width: 110px;
+    min-height: 50px;
+    font-size: 22px;
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 1);
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 .add-flex input {
     width: 200px;
     min-height: 50px;
@@ -406,15 +419,15 @@
 .w5 button {
     position: absolute;
     left: 50%;
-    bottom: 23%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 50px;
-    font-size: 24px;
+    bottom: 22%;
+    transform: translate(-49%, -50%);
+    width: 205px;
+    min-height: 50px;
+    font-size: 22px;
+    border-radius: 10px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: #07a6a4;
-    border-radius: 10px;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
 }
 
@@ -452,7 +465,7 @@
     overflow-y: auto;
 }
 
-.payment-list {
+.expense-list {
     position: absolute;
     border-radius: 10px;
     left: -40px;
@@ -496,7 +509,7 @@
     font-weight: bold;
 }
 
-.payment-list li {
+.expense-list li {
     line-height: 180%;
     border-radius: 7px;
     padding-left: -30px;

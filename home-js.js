@@ -6,36 +6,35 @@ function clickSound() {
 $(`.o1`).on("click", () => {
     $(`.w1`).fadeIn();
     $(".w2,.w3,.w4,.w5").css("display", "none");
-    $(".track").css("display", "none");
     $(`.data-container`).fadeOut();
+    $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-
 });
 $(`.o2`).on("click", () => {
     $(`.w2`).fadeIn();
     $(".w1,.w3,.w4,.w5").css("display", "none");
     $(`.data-container`).fadeOut();
+    $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-
 });
 $(`.o3`).on("click", () => {
     $(`.w3`).fadeIn();
     $(".w1,.w2,.w4,.w5").css("display", "none");
     $(`.data-container`).fadeOut();
+    $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-
 });
 $(`.o4`).on("click", () => {
     $(`.w4`).fadeIn();
     $(".w1,.w2,.w3,.w5").css("display", "none");
     $(".track").css("display", "none");
     $(`.data-container`).fadeOut();
+    $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-
 });
 $(`.fa-plus-circle`).on("click", () => {
     $(`.w5`).fadeIn();
@@ -45,9 +44,7 @@ $(`.fa-plus-circle`).on("click", () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-
 });
-
 //light theme
 $(`.dropdown-item1`).on("click", () => {
     $(`body`).css("background-image", "url(money2.jpg)");
@@ -81,29 +78,24 @@ $(`.dropdown-item2`).on("click", () => {
     // $(`p,span,input,div,select`).css('color', '#F29F05');
 })
 
-
 //user data
 let balance = 0
 $(`#data-button`).on('click', function() {
     balance = Number($(`#account`).val());
     let user = $(`#username`).val();
-
     $(`#balance`).val(balance);
     $(`.header-name`).text('');
     $(`.header-name`).append(user);
 })
-
 $(`#data-button`).on('click', function() {
     $(`.data-container`).fadeOut();
     $(`#data-button`).fadeOut();
     $(`.navigate`).fadeIn();
     $(`.header-name2`).fadeOut();
-
     // $(`#body`).css('background-image', 'url(money.jpg)');
-
-
 })
 
+//trying to add blinking effect
 // $(`#username`).on('change', function() {
 //     // setInterval(function() {
 //     //     if ($(`#data-button`).css('border') === 'none') {
@@ -116,52 +108,141 @@ $(`#data-button`).on('click', function() {
 //     $(`#data-button`).css('color', 'rgba(4, 126, 143, .8)')
 // })
 
+//FUNCTIONALITY//
 
-//functionality
-const payments = [];
-const addPayment = (description, cost, date) => {
+//addition to main array of objects
+const transactions = [];
+const addPayment = (description, cost, date, type) => {
     let newPayment = {};
     newPayment.description = description;
     newPayment.cost = cost;
     newPayment.date = date;
-    payments.push(newPayment);
+    newPayment.type = type;
+    transactions.push(newPayment);
+    filterTransactions()
+        //this method devides the main transactions array into two sub-arrays (expenses,incomes)
+        // while keeping the main also
+        //(it may make improvements easier for future features but I still dont know)
 };
 
+//deviding main transaction array into 2 sub-arrays
+let expenseItems = []
+let incomeItems = []
 
-//add payments to array function
+const filterTransactions = () => {
+    expenseItems = transactions.filter(function(elem) {
+        return elem.type === "Expense"
+    })
+    incomeItems = transactions.filter(function(elem) {
+        return elem.type === "Income"
+    })
+}
+
+//add inputs to main transactions array
 // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
-let a, b, c;
+let a, b, c, d;
 $(`#addButton`).on('click', function() {
     a = $(`#in1`).val();
-    b = Number($(`#in2`).val());
+    b = Number($(`#in2`).val()); //always return numbers as string so I had to use Number()
     c = $(`#in3`).val();
-    addPayment(a, b, c);
+    d = $(`#in4`).val(); //this line may be removed in case of using the (filterTransactions) function above 
+    addPayment(a, b, c, d);
 });
 
-//render list function that needs to run after every addition of removal
-function renderList() {
-    $(`.payment-list`).text(""); //important to keep the counting right
-    for (let i = 0; i < payments.length; i++) {
-        let lii = $(`<li> </li>`);
-        lii.append(payments[i].description);
-        lii.append(" ( ", payments[i].cost, " ) ");
-        lii.append(payments[i].date);
 
-        let bt = $(`<i class="fas fa-backspace"></i>`);
-        bt.addClass("delete-btn");
-        bt.on('click', function() { ///////// it didnt work with function(i),, why??
-            payments.splice(i, 1);
+//render list function, that needs to run after every addition of removal of payment
+
+function renderList() {
+
+    //all this method is based on iterating over the main transactions array and filtering types with (if)
+    //this method may not be best practice for future improvements
+
+    /*-------------------------------------------
+    $(`.expense-list`).text(""); //important to keep the counting right
+    $(`.income-list`).text(""); //important to keep the counting right
+
+    for (let i = 0; i < transactions.length; i++) {
+
+        if (transactions[i].type === 'Expense') {
+
+            let li1 = $(`<li> </li>`);
+            li1.append(transactions[i].description);
+            li1.append(" ( ", transactions[i].cost, " ) ");
+            li1.append(transactions[i].date);
+
+            let bt1 = $(`<i class="fas fa-backspace"></i>`);
+            bt1.addClass("delete-btn");
+            bt1.on('click', function() { ///////// it didnt work with function(i),, why??
+                transactions.splice(i, 1);
+                renderList();
+                updateBalance();
+            });
+
+            li1.append(bt1);
+            $(`.expense-list`).append(li1);
+
+        } else if (transactions[i].type === 'Income') { //used else if to prepare for future features
+
+            let li2 = $(`<li> </li>`);
+            li2.append(transactions[i].description);
+            li2.append(" ( ", transactions[i].cost, " ) ");
+            li2.append(transactions[i].date);
+
+            let bt2 = $(`<i class="fas fa-backspace"></i>`);
+            bt2.addClass("delete-btn");
+            bt2.on('click', function() { ///////// it didnt work with function(i),, why??
+                transactions.splice(i, 1);
+                renderList();
+                updateBalance();
+            });
+
+            li2.append(bt2);
+            $(`.income-list`).append(li2);
+        }
+    }
+    ------------------------*/
+
+    //now this other method is based on iterating over 2 sub-arrays (expenses,incomes) seperately
+    //and print each one on its specific list(it may help in future improvements and features)
+
+    $(`.expense-list`).text(""); //important to keep the counting right
+    $(`.income-list`).text(""); //important to keep the counting right
+
+    expenseItems.forEach(function(elem, i) {
+        let li1 = $(`<li> </li>`);
+        li1.append(elem.description);
+        li1.append(" ( ", elem.cost, " ) ");
+        li1.append(elem.date);
+
+        let bt1 = $(`<i class="fas fa-backspace"></i>`);
+        bt1.addClass("delete-btn");
+        bt1.on('click', function() { ///////// it didnt work with function(i),, why??
+            expenseItems.splice(i, 1);
             renderList();
             updateBalance();
         });
-        lii.append(bt);
+        li1.append(bt1);
+        $(`.expense-list`).append(li1);
+    })
+    incomeItems.forEach(function(elem, i) {
+            let li2 = $(`<li> </li>`);
+            li2.append(elem.description);
+            li2.append(" ( ", elem.cost, " ) ");
+            li2.append(elem.date);
 
-        $(`.payment-list`).append(lii);
-    }
+            let bt2 = $(`<i class="fas fa-backspace"></i>`);
+            bt2.addClass("delete-btn");
+            bt2.on('click', function() { ///////// it didnt work with function(i),, why??
+                incomeItems.splice(i, 1);
+                renderList();
+                updateBalance();
+            });
+            li2.append(bt2);
+            $(`.income-list`).append(li2);
+        })
+        //any undefined transaction type will not be shown on lists
 }
-
 $(`#addButton`).on('click', function() { renderList() }); //// it doesnt work without this structure
-
 
 //collect balance 
 // $(`#balance`).on('change', function() {
@@ -170,12 +251,46 @@ $(`#addButton`).on('click', function() { renderList() }); //// it doesnt work wi
 
 //update balance
 let updatedBalance = 0
+let totalExpense = 0
+let totalIncome = 0
 const updateBalance = () => {
-    updatedBalance = balance + payments.reduce(function(acc, elem) {
-        return acc + elem.cost
-    }, 0);
+    /*
+        //this method uses the main transaction array directly without deviding it into
+        // two sub-arrays(expenses,incomes)
+        transactions.forEach(function(elem) {
+            if (elem.type === "Expense") {
+                totalExpense = totalExpense + elem.cost
+            }
+            if (elem.type === "Income") {
+                totalIncome = totalIncome + elem.cost
+            }
+        })*/
 
+
+    //this methods calculate sum of the two sub-arrays(expenses,income) which I filtered already using ( filterTransactions) func
+    //any undefined transaction type will not be counted in balance
+
+    totalExpense = expenseItems.reduce(function(acc, elem) {
+        return acc + elem.cost
+    }, 0)
+    totalIncome = incomeItems.reduce(function(acc, elem) {
+        return acc + elem.cost
+    }, 0)
+    console.log('updatedBalance=' +
+        updatedBalance)
+    console.log('totalExpense=' +
+        totalExpense)
+    console.log('totalIncome=' +
+        totalIncome)
+
+    updatedBalance = balance - totalExpense + totalIncome;
     $('#balance').val(updatedBalance);
+
+    //important to keep the right updated balance each time
+    //(prevent the accumalation of updated balances)
+    updatedBalance = 0;
+    totalExpense = 0;
+    totalIncome = 0;
 };
 
 $(`#addButton`).on('click', function() { updateBalance() }); //// it doesnt work without this structure
@@ -185,7 +300,6 @@ $(`#addButton`).on('click', function() {
     $(`#in1`).val('');
     $(`#in2`).val(0);
     $(`#in3`).val('');
-
 });
 
 //currency
