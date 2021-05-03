@@ -45,6 +45,7 @@ $(`.fa-plus-circle`).on("click", () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
 });
+
 //light theme
 const lightTheme = () => {
     $(`body`).css("background-image", "url(money2.jpg)");
@@ -61,6 +62,8 @@ const lightTheme = () => {
     $(`.fa-plus-circle`).css("color", "#07A6A4");
     $(`#addButton`).css("background-color", "#07A6A4");
     $(`.max-div`).css('background-color', 'whitesmoke');
+    localStorage.setItem('theme', 'light')
+
 }
 
 $(`.dropdown-item1`).on("click", () => { lightTheme() });
@@ -81,6 +84,7 @@ const darkTheme = () => {
     $(`.fa-plus-circle`).css("color", "#047E8F");
     $(`#addButton`).css("background-color", "#047E8F");
     $(`.max-div`).css('background-color', 'rgba(138, 138, 138, 0.6)');
+    localStorage.setItem('theme', 'dark')
 }
 
 $(`.dropdown-item2`).on("click", () => { darkTheme() })
@@ -146,6 +150,10 @@ window.onload = function() {
             updateBalance()
             highestExp()
         }
+        //to restore theme choose
+        if (localStorage.getItem('theme') === 'dark') {
+            darkTheme()
+        } else { lightTheme() }
     }
     //add inputs to main transactions array
     // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
