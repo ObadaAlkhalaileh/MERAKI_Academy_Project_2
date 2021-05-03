@@ -148,7 +148,7 @@ $(`#addButton`).on('click', function() {
     b = Number($(`#in2`).val()); //always return numbers as string so I had to use Number()
     c = $(`#in3`).val();
     d = $(`#in4`).val(); //this line may be removed in case of using the (filterTransactions) function above 
-    addPayment(a, b, c, d);
+    addPayment(a, b, c = '', d);
 });
 
 
@@ -308,3 +308,30 @@ $(`#currency`).on('change', function() {
     let cc = $(`#currency`).val();
     $(`#curr`).append(cc);
 });
+
+//highest Expense
+let max = Number.NEGATIVE_INFINITY
+let maxIndex = 0
+const highestExp = () => {
+    expenseItems.forEach(function(elem, i) {
+        if (elem.cost >= max) {
+            max = elem.cost
+            maxIndex = i
+        }
+    })
+
+    $(`.max-list`).text('') // to keep list clean and unrepeated with repeating execution
+
+    let li1 = $(`<li> </li>`)
+    let li2 = $(`<li> </li>`)
+    let li3 = $(`<li> </li>`)
+
+    li1.append(expenseItems[maxIndex].description)
+    li2.append(expenseItems[maxIndex].cost)
+    li3.append(expenseItems[maxIndex].date)
+
+    $(`.max-list`).append(li1, li2, li3)
+
+};
+
+$(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work without this structure
