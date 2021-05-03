@@ -46,7 +46,7 @@ $(`.fa-plus-circle`).on("click", () => {
     $(`.header-name2`).fadeOut();
 });
 //light theme
-$(`.dropdown-item1`).on("click", () => {
+const lightTheme = () => {
     $(`body`).css("background-image", "url(money2.jpg)");
     $(`.top`).css("background-color", "#bfc7d9");
     $(`.side`).css("background-color", "#07A6A4");
@@ -60,10 +60,13 @@ $(`.dropdown-item1`).on("click", () => {
     $(`select`).css('background-color', 'whitesmoke');
     $(`.fa-plus-circle`).css("color", "#07A6A4");
     $(`#addButton`).css("background-color", "#07A6A4");
-});
+    $(`.max-div`).css('background-color', 'whitesmoke');
+}
+
+$(`.dropdown-item1`).on("click", () => { lightTheme() });
 
 //dark theme
-$(`.dropdown-item2`).on("click", () => {
+const darkTheme = () => {
     $(`body`).css("background-image", "url(money2dark.jpg)");
     $(`.top`).css("background-color", "#047E8F");
     $(`.side`).css("background-color", "#047E8F");
@@ -77,8 +80,10 @@ $(`.dropdown-item2`).on("click", () => {
     $(`select`).css('background-color', '#bfc7d9');
     $(`.fa-plus-circle`).css("color", "#047E8F");
     $(`#addButton`).css("background-color", "#047E8F");
-    // $(`p,span,input,div,select`).css('color', '#F29F05');
-})
+    $(`.max-div`).css('background-color', 'rgba(138, 138, 138, 0.6)');
+}
+
+$(`.dropdown-item2`).on("click", () => { darkTheme() })
 
 //user data
 let balance = 0
@@ -97,18 +102,6 @@ $(`#data-button`).on('click', function() {
     // $(`#body`).css('background-image', 'url(money.jpg)');
 })
 
-//trying to add blinking effect
-// $(`#username`).on('change', function() {
-//     // setInterval(function() {
-//     //     if ($(`#data-button`).css('border') === 'none') {
-//     //         $(`#data-button`).css('color', 'rgba(4, 126, 143, .8)')
-// })
-//     //     } else {
-//     //         $(`#data-button`).css('border', 'none')
-//     //     }
-//     // }, 500)
-//     $(`#data-button`).css('color', 'rgba(4, 126, 143, .8)')
-// })
 
 //FUNCTIONALITY//
 
