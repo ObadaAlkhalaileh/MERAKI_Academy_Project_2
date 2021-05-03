@@ -132,14 +132,25 @@ let expenseItems = []
 let incomeItems = []
 
 const filterTransactions = () => {
-        expenseItems = transactions.filter(function(elem) {
-            return elem.type === "Expense"
-        })
-        incomeItems = transactions.filter(function(elem) {
-            return elem.type === "Income"
-        })
-        localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
-        localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
+    expenseItems = transactions.filter(function(elem) {
+        return elem.type === "Expense"
+    })
+    incomeItems = transactions.filter(function(elem) {
+        return elem.type === "Income"
+    })
+
+    //local storage update 
+    localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
+    localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
+}
+
+//local storage function to restore all the changes
+window.onload = function() {
+        expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
+        incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
+        renderList()
+        updateBalance()
+        highestExp()
     }
     //add inputs to main transactions array
     // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
