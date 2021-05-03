@@ -708,3 +708,18 @@
     background-color: rgba(4, 126, 143, 0.5);
     border: solid rgba(0, 0, 0, 0.418) 1px;
 }
+
+#reset {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    transform: translate(-49%, -50%);
+    width: 205px;
+    min-height: 50px;
+    font-size: 22px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #07a6a4;
+    box-shadow: 6px 6px 4px rgb(94, 94, 94);
+}

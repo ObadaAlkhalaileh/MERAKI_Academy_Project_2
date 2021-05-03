@@ -366,6 +366,8 @@ $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work wi
 
 //reset button to clear local storage
 $(`#reset`).on('click', function() {
-    localStorage.clear()
+    localStorage.removeItem('expenseItems')
+    localStorage.removeItem('incomeItems')
+
     location.reload()
 });
