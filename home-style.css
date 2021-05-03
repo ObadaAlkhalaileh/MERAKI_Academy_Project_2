@@ -663,3 +663,28 @@
 .header-name2:hover {
     cursor: default;
 }
+
+#highest-expense {
+    position: absolute;
+    left: 7.5%;
+    top: 22%;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.max-div {
+    position: absolute;
+    background-color: whitesmoke;
+    border: solid rgba(0, 0, 0, 0.418) 1px;
+    border-radius: 10px;
+    height: 40%;
+    width: 20%;
+    left: 5%;
+    top: 30%;
+}
+
+.max-div ul {
+    border: black solid;
+}

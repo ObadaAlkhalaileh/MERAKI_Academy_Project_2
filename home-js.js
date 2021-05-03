@@ -207,8 +207,8 @@ function renderList() {
     //now this other method is based on iterating over 2 sub-arrays (expenses,incomes) seperately
     //and print each one on its specific list(it may help in future improvements and features)
 
-    $(`.expense-list`).text(""); //important to keep the counting right
-    $(`.income-list`).text(""); //important to keep the counting right
+    $(`.expense-list`).text(""); //important to not copy on another copy
+    $(`.income-list`).text(""); //important to not copy on another copy
 
     expenseItems.forEach(function(elem, i) {
         let li1 = $(`<li> </li>`);
@@ -246,10 +246,6 @@ function renderList() {
 }
 $(`#addButton`).on('click', function() { renderList() }); //// it doesnt work without this structure
 
-//collect balance 
-// $(`#balance`).on('change', function() {
-//     myBalance = Number($('#balance').val())
-// })
 
 //update balance
 let updatedBalance = 0
@@ -259,6 +255,7 @@ const updateBalance = () => {
     /*
         //this method uses the main transaction array directly without deviding it into
         // two sub-arrays(expenses,incomes)
+
         transactions.forEach(function(elem) {
             if (elem.type === "Expense") {
                 totalExpense = totalExpense + elem.cost
@@ -300,7 +297,7 @@ $(`#addButton`).on('click', function() { updateBalance() }); //// it doesnt work
 //clear inputs after addition
 $(`#addButton`).on('click', function() {
     $(`#in1`).val('');
-    $(`#in2`).val(0);
+    $(`#in2`).val('');
     $(`#in3`).val('');
 });
 
