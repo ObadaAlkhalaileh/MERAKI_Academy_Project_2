@@ -144,13 +144,15 @@ const filterTransactions = () => {
     localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
 }
 
-//local storage function to restore all the changes
+//on refresh event listener ..function to restore all the changes by local storage 
 window.onload = function() {
-        expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
-        incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
-        renderList()
-        updateBalance()
-        highestExp()
+        if (!(!localStorage.getItem('expenseItems') === true)) { // this condittion was added in case the user refresh before adding anything
+            expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
+            incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
+            renderList()
+            updateBalance()
+            highestExp()
+        }
     }
     //add inputs to main transactions array
     // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
@@ -235,6 +237,9 @@ function renderList() {
             renderList();
             updateBalance();
             highestExp();
+            //need to apply the changes on local storage also
+            localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
+            localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
         });
         li1.append(bt1);
         $(`.expense-list`).append(li1);
@@ -252,6 +257,9 @@ function renderList() {
                 renderList();
                 updateBalance();
                 highestExp();
+                //need to apply the changes on local storage also
+                localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
+                localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
             });
             li2.append(bt2);
             $(`.income-list`).append(li2);
@@ -335,20 +343,28 @@ const highestExp = () => {
             maxIndex = i
         }
     })
-    console.log('max=' + max)
-    console.log('maxIndex=' + maxIndex)
+
+    // console.log('max=' + max)
+    // console.log('maxIndex=' + maxIndex)
     $(`.max-list`).text('') // to keep list clean and unrepeated with repeating execution
 
     let li1 = $(`<li> </li>`)
     let li2 = $(`<li> </li>`)
     let li3 = $(`<li> </li>`)
+    if (!(!expenseItems[maxIndex] === true)) {
+        //this condition was added for the case of removing the last item from the expense list
+        li1.append(expenseItems[maxIndex].description)
+        li2.append(expenseItems[maxIndex].cost)
+        li3.append(expenseItems[maxIndex].date)
 
-    li1.append(expenseItems[maxIndex].description)
-    li2.append(expenseItems[maxIndex].cost)
-    li3.append(expenseItems[maxIndex].date)
-
-    $(`.max-list`).append(li1, li2, li3)
-
+        $(`.max-list`).append(li1, li2, li3)
+    }
 };
 
 $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work without this structure
+
+//reset button to clear local storage
+$(`#reset`).on('click', function() {
+    localStorage.clear()
+    location.reload()
+});
