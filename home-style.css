@@ -711,15 +711,14 @@
 
 #reset {
     position: absolute;
-    left: 5%;
-    bottom: 10%;
-    transform: translate(-49%, -50%);
-    width: 205px;
+    left: .5%;
+    bottom: 1.5%;
+    width: 110px;
     min-height: 50px;
     font-size: 22px;
     border-radius: 10px;
-    font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #07a6a4;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    background-color: #810606;
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
+    color: whitesmoke;
 }
