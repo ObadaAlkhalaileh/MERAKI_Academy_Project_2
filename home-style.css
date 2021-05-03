@@ -680,7 +680,7 @@
     background-color: whitesmoke;
     border: solid rgba(0, 0, 0, 0.418) 1px;
     border-radius: 10px;
-    height: 20%;
+    height: 21.2%;
     width: 20%;
     left: 5%;
     top: 30%;
@@ -690,7 +690,7 @@
     position: absolute;
     border-radius: 10px;
     left: -40px;
-    height: 98%;
+    height: 100%;
     width: 100%;
     top: -20px;
     font-size: 20px;
@@ -698,4 +698,13 @@
     list-style-type: none;
     text-align: center;
     line-height: 35px;
+}
+
+.max-list li {
+    line-height: 180%;
+    border-radius: 7px;
+    padding-left: -30px;
+    font-weight: bold;
+    background-color: rgba(4, 126, 143, 0.5);
+    border: solid rgba(0, 0, 0, 0.418) 1px;
 }

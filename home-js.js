@@ -148,7 +148,7 @@ $(`#addButton`).on('click', function() {
     b = Number($(`#in2`).val()); //always return numbers as string so I had to use Number()
     c = $(`#in3`).val();
     d = $(`#in4`).val(); //this line may be removed in case of using the (filterTransactions) function above 
-    addPayment(a, b, c = '', d);
+    addPayment(a, b, c, d);
 });
 
 
@@ -222,6 +222,7 @@ function renderList() {
             expenseItems.splice(i, 1);
             renderList();
             updateBalance();
+            highestExp();
         });
         li1.append(bt1);
         $(`.expense-list`).append(li1);
@@ -238,6 +239,7 @@ function renderList() {
                 incomeItems.splice(i, 1);
                 renderList();
                 updateBalance();
+                highestExp();
             });
             li2.append(bt2);
             $(`.income-list`).append(li2);
@@ -273,14 +275,14 @@ const updateBalance = () => {
         return acc + elem.cost
     }, 0)
     totalIncome = incomeItems.reduce(function(acc, elem) {
-        return acc + elem.cost
-    }, 0)
-    console.log('updatedBalance=' +
-        updatedBalance)
-    console.log('totalExpense=' +
-        totalExpense)
-    console.log('totalIncome=' +
-        totalIncome)
+            return acc + elem.cost
+        }, 0)
+        // console.log('updatedBalance=' +
+        //     updatedBalance)
+        // console.log('totalExpense=' +
+        //     totalExpense)
+        // console.log('totalIncome=' +
+        //     totalIncome)
 
     updatedBalance = balance - totalExpense + totalIncome;
     $('#balance').val(updatedBalance);
@@ -310,16 +312,19 @@ $(`#currency`).on('change', function() {
 });
 
 //highest Expense
-let max = Number.NEGATIVE_INFINITY
-let maxIndex = 0
+
 const highestExp = () => {
+    let max = Number.NEGATIVE_INFINITY //had to use them inside the function to reset the values everytime I invoke this function by delete-btn
+    let maxIndex = 0
+
     expenseItems.forEach(function(elem, i) {
         if (elem.cost >= max) {
             max = elem.cost
             maxIndex = i
         }
     })
-
+    console.log('max=' + max)
+    console.log('maxIndex=' + maxIndex)
     $(`.max-list`).text('') // to keep list clean and unrepeated with repeating execution
 
     let li1 = $(`<li> </li>`)
