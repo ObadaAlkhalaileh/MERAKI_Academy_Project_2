@@ -12,7 +12,7 @@ const o1 = () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
     localStorage.setItem('page', 1);
-}
+};
 $(`.o1`).on("click", () => { o1() });
 
 const o2 = () => {
@@ -23,7 +23,7 @@ const o2 = () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
     localStorage.setItem('page', 2);
-}
+};
 $(`.o2`).on("click", () => { o2() });
 
 const o3 = () => {
@@ -34,7 +34,7 @@ const o3 = () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
     localStorage.setItem('page', 3);
-}
+};
 $(`.o3`).on("click", () => { o3() });
 
 const o4 = () => {
@@ -46,7 +46,7 @@ const o4 = () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
     localStorage.setItem('page', 4);
-}
+};
 $(`.o4`).on("click", () => { o4() });
 
 const o5 = () => {
@@ -58,7 +58,7 @@ const o5 = () => {
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
     localStorage.setItem('page', 5);
-}
+};
 $(`.fa-plus-circle`).on("click", () => { o5() });
 
 //light theme
@@ -81,7 +81,7 @@ const lightTheme = () => {
 
     localStorage.setItem('theme', 'light');
 
-}
+};
 
 $(`.dropdown-item1`).on("click", () => { lightTheme() });
 
@@ -104,7 +104,7 @@ const darkTheme = () => {
     $(`.watch`).css("color", "whitesmoke");
 
     localStorage.setItem('theme', 'dark');
-}
+};
 
 $(`.dropdown-item2`).on("click", () => { darkTheme() });
 
@@ -120,14 +120,14 @@ $(`#data-button`).on('click', function() {
     $(`#balance`).val(balance);
     // $(`.header-name`).text('');
     $(`.header-name`).append(user);
-})
+});
 $(`#data-button`).on('click', function() {
     $(`.data-container`).fadeOut();
     $(`#data-button`).fadeOut();
     $(`.navigate`).fadeIn();
     $(`.header-name2`).fadeOut();
     // $(`#body`).css('background-image', 'url(money.jpg)');
-})
+});
 
 
 //FUNCTIONALITY//
@@ -142,23 +142,23 @@ const addPayment = (description, cost, date, type) => {
     newPayment.date = date;
     newPayment.type = type;
     transactions.push(newPayment);
-    filterTransactions()
-        //first step in local storage work
-    localStorage.setItem('transactions', JSON.stringify(transactions)) //here I store the transactions array as soon I created it
+    filterTransactions();
+    //first step in local storage work
+    localStorage.setItem('transactions', JSON.stringify(transactions)); //here I store the transactions array as soon I created it
 };
 
 //deviding main transaction array into 2 sub-arrays
-let expenseItems = []
-let incomeItems = []
+let expenseItems = [];
+let incomeItems = [];
 
 const filterTransactions = () => {
 
         expenseItems = transactions.filter(function(elem) {
-            return elem.type === "Expense"
-        })
+            return elem.type === "Expense";
+        });
         incomeItems = transactions.filter(function(elem) {
-            return elem.type === "Income"
-        })
+            return elem.type === "Income";
+        });
 
         // //local storage update (first step)
         // localStorage.setItem('expenseItems', JSON.stringify(expenseItems)) //and here I store the two sub arrays also as soon as they are created
@@ -171,36 +171,36 @@ const filterTransactions = () => {
 window.onload = function() {
     //to restore username and balance
     balance = JSON.parse(localStorage.getItem('balance'))
-    user = localStorage.getItem('user')
+    user = localStorage.getItem('user');
 
     $(`#balance`).val(balance);
     $(`.header-name`).append(user);
 
     if (!(!localStorage.getItem('transactions') === true)) { // this condittion was added in case the user refresh before adding anything
         //veery important THE PROCEDURE OF RESTORING MY SETTINGS// evey function that controls values and results on screen is executed
-        transactions = JSON.parse(localStorage.getItem('transactions')) // here is the start point of restoring results after refresh(((oonly with condition)))
-        filterTransactions()
-        renderList()
-        updateBalance()
-        highestExp()
-    }
+        transactions = JSON.parse(localStorage.getItem('transactions')); // here is the start point of restoring results after refresh(((oonly with condition)))
+        filterTransactions();
+        renderList();
+        updateBalance();
+        highestExp();
+    };
 
     //to restore theme selection
     if (localStorage.getItem('theme') === 'dark') {
-        darkTheme()
-    } else { lightTheme() }
+        darkTheme();
+    } else { lightTheme() };
     //to restore currency 
     if (!(!localStorage.getItem('curr') === true)) {
-        cc = localStorage.getItem('curr')
+        cc = localStorage.getItem('curr');
         $(`#curr`).append(cc);
-    }
+    };
 
     //to restore window
-    if (localStorage.getItem('page') === '1') { o1() }
-    if (localStorage.getItem('page') === '2') { o2() }
-    if (localStorage.getItem('page') === '3') { o3() }
-    if (localStorage.getItem('page') === '4') { o4() }
-    if (localStorage.getItem('page') === '5') { o5() }
+    if (localStorage.getItem('page') === '1') { o1() };
+    if (localStorage.getItem('page') === '2') { o2() };
+    if (localStorage.getItem('page') === '3') { o3() };
+    if (localStorage.getItem('page') === '4') { o4() };
+    if (localStorage.getItem('page') === '5') { o5() };
 
 }
 
@@ -219,11 +219,11 @@ $(`#addButton`).on('click', function() {
 //render list function, that needs to run after every addition of removal of payment
 
 function renderList() {
-    console.log(expenseItems)
-    console.log(incomeItems)
-        //all this method is based on iterating over the main transactions array and filtering types with (if)
-        //this method may not be best practice for future improvements
-        //طلعت هي البيست براكتيس بالاخر مع اللوكال ستوريج هههههه
+    console.log(expenseItems);
+    console.log(incomeItems);
+    //all this method is based on iterating over the main transactions array and filtering types with (if)
+    //this method may not be best practice for future improvements
+    //طلعت هي البيست براكتيس بالاخر مع اللوكال ستوريج هههههه
 
     //-------------------------------------------
     $(`.expense-list`).text(""); //important to keep the counting right
@@ -238,7 +238,7 @@ function renderList() {
             bt1.addClass("delete-btn");
             bt1.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
-                filterTransactions()
+                filterTransactions();
                 renderList();
                 updateBalance();
                 highestExp();
@@ -256,18 +256,18 @@ function renderList() {
             bt2.addClass("delete-btn");
             bt2.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
-                filterTransactions()
+                filterTransactions();
                 renderList();
                 updateBalance();
                 highestExp();
 
-                localStorage.setItem('transactions', JSON.stringify(transactions)) //we need to update the local storage
+                localStorage.setItem('transactions', JSON.stringify(transactions)); //we need to update the local storage
             });
             li2.append(bt2);
             $(`.income-list`).append(li2);
-        }
-    }
-}
+        };
+    };
+};
 //------------------------
 //last update (5-4-2021) not best practice for local storage(we need to deal with main array)
 //now this other method is based on iterating over 2 sub-arrays (expenses,incomes) seperately
@@ -323,9 +323,9 @@ $(`#addButton`).on('click', function() { renderList() }); //// it doesnt work wi
 
 
 //update balance
-let updatedBalance = 0
-let totalExpense = 0
-let totalIncome = 0
+let updatedBalance = 0;
+let totalExpense = 0;
+let totalIncome = 0;
 const updateBalance = () => {
     /*
         //this method uses the main transaction array directly without deviding it into
@@ -344,24 +344,24 @@ const updateBalance = () => {
     //any undefined transaction type will not be counted in balance
 
     totalExpense = expenseItems.reduce(function(acc, elem) {
-        return acc + elem.cost
-    }, 0)
+        return acc + elem.cost;
+    }, 0);
     totalIncome = incomeItems.reduce(function(acc, elem) {
-            return acc + elem.cost
-        }, 0)
-        // console.log('updatedBalance=' +
-        //     updatedBalance)
-        // console.log('totalExpense=' +
-        //     totalExpense)
-        // console.log('totalIncome=' +
-        //     totalIncome)
+        return acc + elem.cost;
+    }, 0);
+    // console.log('updatedBalance=' +
+    //     updatedBalance)
+    // console.log('totalExpense=' +
+    //     totalExpense)
+    // console.log('totalIncome=' +
+    //     totalIncome)
 
     updatedBalance = balance - totalExpense + totalIncome;
     $('#balance').val(updatedBalance);
 
     if (updatedBalance <= 0) {
-        $(`.watch`).show()
-    }
+        $(`.watch`).show();
+    } else($(`.watch`).hide());
 
     //important to keep the right updated balance each time
     //(prevent the accumalation of updated balances)
@@ -386,37 +386,37 @@ const currSwitch = () => {
     cc = $(`#currency`).val();
     $(`#curr`).append(cc);
     localStorage.setItem('curr', cc)
-}
+};
 $(`#currency`).on('change', function() { currSwitch() });
 
 
 //highest Expense
 const highestExp = () => {
-    let max = Number.NEGATIVE_INFINITY //had to use them inside the function to reset the values everytime I invoke this function by delete-btn
-    let maxIndex = 0
+    let max = Number.NEGATIVE_INFINITY; //had to use them inside the function to reset the values everytime I invoke this function by delete-btn
+    let maxIndex = 0;
 
     expenseItems.forEach(function(elem, i) {
         if (elem.cost >= max) {
-            max = elem.cost
-            maxIndex = i
-        }
-    })
+            max = elem.cost;
+            maxIndex = i;
+        };
+    });
 
     // console.log('max=' + max)
     // console.log('maxIndex=' + maxIndex)
-    $(`.max-list`).text('') // to keep list clean and unrepeated with repeating execution
+    $(`.max-list`).text(''); // to keep list clean and unrepeated with repeating execution
 
-    let li1 = $(`<li> </li>`)
-    let li2 = $(`<li> </li>`)
-    let li3 = $(`<li> </li>`)
+    let li1 = $(`<li> </li>`);
+    let li2 = $(`<li> </li>`);
+    let li3 = $(`<li> </li>`);
     if (!(!expenseItems[maxIndex] === true)) {
         //this condition was added for the case of removing the last item from the expense list
-        li1.append(expenseItems[maxIndex].description)
-        li2.append(expenseItems[maxIndex].cost)
-        li3.append(expenseItems[maxIndex].date)
+        li1.append(expenseItems[maxIndex].description);
+        li2.append(expenseItems[maxIndex].cost);
+        li3.append(expenseItems[maxIndex].date);
 
-        $(`.max-list`).append(li1, li2, li3)
-    }
+        $(`.max-list`).append(li1, li2, li3);
+    };
 };
 
 $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work without this structure
