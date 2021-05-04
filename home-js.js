@@ -3,31 +3,40 @@ function clickSound() {
 }
 
 //tabs show and hide
-$(`.o1`).on("click", () => {
+const o1 = () => {
     $(`.w1`).fadeIn();
     $(".w2,.w3,.w4,.w5").css("display", "none");
     $(`.data-container`).fadeOut();
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-});
-$(`.o2`).on("click", () => {
+    localStorage.setItem('page', 1)
+}
+$(`.o1`).on("click", () => { o1() });
+
+const o2 = () => {
     $(`.w2`).fadeIn();
     $(".w1,.w3,.w4,.w5").css("display", "none");
     $(`.data-container`).fadeOut();
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-});
-$(`.o3`).on("click", () => {
+    localStorage.setItem('page', 2)
+}
+$(`.o2`).on("click", () => { o2() });
+
+const o3 = () => {
     $(`.w3`).fadeIn();
     $(".w1,.w2,.w4,.w5").css("display", "none");
     $(`.data-container`).fadeOut();
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-});
-$(`.o4`).on("click", () => {
+    localStorage.setItem('page', 3)
+}
+$(`.o3`).on("click", () => { o3() });
+
+const o4 = () => {
     $(`.w4`).fadeIn();
     $(".w1,.w2,.w3,.w5").css("display", "none");
     $(".track").css("display", "none");
@@ -35,8 +44,11 @@ $(`.o4`).on("click", () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-});
-$(`.fa-plus-circle`).on("click", () => {
+    localStorage.setItem('page', 4)
+}
+$(`.o4`).on("click", () => { o4() });
+
+const o5 = () => {
     $(`.w5`).fadeIn();
     $(".w1,.w2,.w3,.w4").css("display", "none");
     $(`.add-action`).fadeOut();
@@ -44,7 +56,9 @@ $(`.fa-plus-circle`).on("click", () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-});
+    localStorage.setItem('page', 5)
+}
+$(`.fa-plus-circle`).on("click", () => { o5() });
 
 //light theme
 const lightTheme = () => {
@@ -150,29 +164,43 @@ const filterTransactions = () => {
     //HERE YOU MUST START RESTORING
     //on refresh event listener ..function to restore all the changes by local storage 
 window.onload = function() {
-        //to reshow username and balance
-        balance = JSON.parse(localStorage.getItem('balance'))
-        user = localStorage.getItem('user')
+    //to restore username and balance
+    balance = JSON.parse(localStorage.getItem('balance'))
+    user = localStorage.getItem('user')
 
-        $(`#balance`).val(balance);
-        $(`.header-name`).append(user);
+    $(`#balance`).val(balance);
+    $(`.header-name`).append(user);
 
-        if (!(!localStorage.getItem('transactions') === true)) { // this condittion was added in case the user refresh before adding anything
-            //veery important THE PROCEDURE OF RESTORING MY SETTINGS// evey function that controls values and results on screen is executed
-            transactions = JSON.parse(localStorage.getItem('transactions')) // here is the start point of restoring results after refresh(((oonly with condition)))
-            filterTransactions()
-            renderList()
-            updateBalance()
-            highestExp()
-        }
-
-        //to restore theme selection
-        if (localStorage.getItem('theme') === 'dark') {
-            darkTheme()
-        } else { lightTheme() }
+    if (!(!localStorage.getItem('transactions') === true)) { // this condittion was added in case the user refresh before adding anything
+        //veery important THE PROCEDURE OF RESTORING MY SETTINGS// evey function that controls values and results on screen is executed
+        transactions = JSON.parse(localStorage.getItem('transactions')) // here is the start point of restoring results after refresh(((oonly with condition)))
+        filterTransactions()
+        renderList()
+        updateBalance()
+        highestExp()
     }
-    //add inputs to main transactions array
-    // $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
+
+    //to restore theme selection
+    if (localStorage.getItem('theme') === 'dark') {
+        darkTheme()
+    } else { lightTheme() }
+    //to restore currency 
+    if (!(!localStorage.getItem('curr') === true)) {
+        cc = localStorage.getItem('curr')
+        $(`#curr`).append(cc);
+    }
+
+    //to restore window
+    if (localStorage.getItem('page') === '1') { o1() }
+    if (localStorage.getItem('page') === '2') { o2() }
+    if (localStorage.getItem('page') === '3') { o3() }
+    if (localStorage.getItem('page') === '4') { o4() }
+    if (localStorage.getItem('page') === '5') { o5() }
+
+}
+
+//add inputs to main transactions array
+// $(`#addButton`).on('click', addPayment($(`#in1`).val(), $(`#in2`).val(), $(`#in3`).val()))------ didn't work
 let a, b, c, d;
 $(`#addButton`).on('click', function() {
     a = $(`#in1`).val();
@@ -190,55 +218,50 @@ function renderList() {
     console.log(incomeItems)
         //all this method is based on iterating over the main transactions array and filtering types with (if)
         //this method may not be best practice for future improvements
+        //طلعت هي البيست براكتيس بالاخر مع اللوكال ستوريج هههههه
 
-    /*-------------------------------------------
+    //-------------------------------------------
     $(`.expense-list`).text(""); //important to keep the counting right
     $(`.income-list`).text(""); //important to keep the counting right
-
     for (let i = 0; i < transactions.length; i++) {
-
         if (transactions[i].type === 'Expense') {
-
             let li1 = $(`<li> </li>`);
             li1.append(transactions[i].description);
             li1.append(" ( ", transactions[i].cost, " ) ");
             li1.append(transactions[i].date);
-
             let bt1 = $(`<i class="fas fa-backspace"></i>`);
             bt1.addClass("delete-btn");
             bt1.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
                 renderList();
                 updateBalance();
+                highestExp();
             });
-
             li1.append(bt1);
             $(`.expense-list`).append(li1);
-
         } else if (transactions[i].type === 'Income') { //used else if to prepare for future features
-
             let li2 = $(`<li> </li>`);
             li2.append(transactions[i].description);
             li2.append(" ( ", transactions[i].cost, " ) ");
             li2.append(transactions[i].date);
-
             let bt2 = $(`<i class="fas fa-backspace"></i>`);
             bt2.addClass("delete-btn");
             bt2.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
                 renderList();
                 updateBalance();
+                highestExp();
             });
-
             li2.append(bt2);
             $(`.income-list`).append(li2);
         }
     }
-    ------------------------*/
-
-    //now this other method is based on iterating over 2 sub-arrays (expenses,incomes) seperately
-    //and print each one on its specific list(it may help in future improvements and features)
-
+}
+//------------------------
+//last update (5-4-2021) not best practice for local storage(we need to deal with main array)
+//now this other method is based on iterating over 2 sub-arrays (expenses,incomes) seperately
+//and print each one on its specific list(it may help in future improvements and features)
+/*
     $(`.expense-list`).text(""); //important to not copy on another copy
     $(`.income-list`).text(""); //important to not copy on another copy
 
@@ -284,6 +307,7 @@ function renderList() {
         })
         //any undefined transaction type will not be shown on lists
 }
+*/
 $(`#addButton`).on('click', function() { renderList() }); //// it doesnt work without this structure
 
 
@@ -295,7 +319,6 @@ const updateBalance = () => {
     /*
         //this method uses the main transaction array directly without deviding it into
         // two sub-arrays(expenses,incomes)
-
         transactions.forEach(function(elem) {
             if (elem.type === "Expense") {
                 totalExpense = totalExpense + elem.cost
@@ -343,14 +366,16 @@ $(`#addButton`).on('click', function() {
 
 //currency
 let cc = ""
-$(`#currency`).on('change', function() {
+const currSwitch = () => {
     $(`#curr`).text(" ");
-    let cc = $(`#currency`).val();
+    cc = $(`#currency`).val();
     $(`#curr`).append(cc);
-});
+    localStorage.setItem('curr', cc)
+}
+$(`#currency`).on('change', function() { currSwitch() });
+
 
 //highest Expense
-
 const highestExp = () => {
     let max = Number.NEGATIVE_INFINITY //had to use them inside the function to reset the values everytime I invoke this function by delete-btn
     let maxIndex = 0
@@ -383,10 +408,12 @@ $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work wi
 
 //reset button to clear local storage
 $(`#reset`).on('click', function() {
-    localStorage.removeItem('transactions')
-    localStorage.removeItem('balance')
-    localStorage.removeItem('user')
+    localStorage.removeItem('transactions');
+    localStorage.removeItem('balance');
+    localStorage.removeItem('user');
+    localStorage.removeItem('curr');
+    localStorage.removeItem('theme');
+    localStorage.removeItem('page');
 
-
-    location.reload()
+    location.reload();
 });
