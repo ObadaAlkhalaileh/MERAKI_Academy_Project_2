@@ -722,3 +722,7 @@
     box-shadow: 6px 6px 4px rgb(94, 94, 94);
     color: whitesmoke;
 }
+
+#reset:hover {
+    cursor: pointer;
+}

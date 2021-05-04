@@ -233,9 +233,12 @@ function renderList() {
             bt1.addClass("delete-btn");
             bt1.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
+                filterTransactions()
                 renderList();
                 updateBalance();
                 highestExp();
+
+                localStorage.setItem('transactions', JSON.stringify(transactions)) //we need to update the local storage
             });
             li1.append(bt1);
             $(`.expense-list`).append(li1);
@@ -248,9 +251,12 @@ function renderList() {
             bt2.addClass("delete-btn");
             bt2.on('click', function() { ///////// it didnt work with function(i),, why??
                 transactions.splice(i, 1);
+                filterTransactions()
                 renderList();
                 updateBalance();
                 highestExp();
+
+                localStorage.setItem('transactions', JSON.stringify(transactions)) //we need to update the local storage
             });
             li2.append(bt2);
             $(`.income-list`).append(li2);
