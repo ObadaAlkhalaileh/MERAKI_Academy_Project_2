@@ -116,6 +116,8 @@ $(`#data-button`).on('click', function() {
 //addition to main array of objects
 const transactions = [];
 const addPayment = (description, cost, date, type) => {
+
+
     let newPayment = {};
     newPayment.description = description;
     newPayment.cost = cost;
@@ -140,9 +142,11 @@ const filterTransactions = () => {
         return elem.type === "Income"
     })
 
-    //local storage update 
+    //local storage update (first step)
     localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
     localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
+    localStorage.setItem('transactions', JSON.stringify(transactions))
+
 }
 
 //on refresh event listener ..function to restore all the changes by local storage 
@@ -157,11 +161,14 @@ window.onload = function() {
         if (!(!localStorage.getItem('expenseItems') === true)) { // this condittion was added in case the user refresh before adding anything
             expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
             incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
+
+            filterTransactions()
             renderList()
             updateBalance()
             highestExp()
         }
-        //to restore theme choose
+
+        //to restore theme selection
         if (localStorage.getItem('theme') === 'dark') {
             darkTheme()
         } else { lightTheme() }
@@ -181,9 +188,10 @@ $(`#addButton`).on('click', function() {
 //render list function, that needs to run after every addition of removal of payment
 
 function renderList() {
-
-    //all this method is based on iterating over the main transactions array and filtering types with (if)
-    //this method may not be best practice for future improvements
+    console.log(expenseItems)
+    console.log(incomeItems)
+        //all this method is based on iterating over the main transactions array and filtering types with (if)
+        //this method may not be best practice for future improvements
 
     /*-------------------------------------------
     $(`.expense-list`).text(""); //important to keep the counting right
@@ -379,6 +387,9 @@ $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work wi
 $(`#reset`).on('click', function() {
     localStorage.removeItem('expenseItems')
     localStorage.removeItem('incomeItems')
+    localStorage.removeItem('balance')
+    localStorage.removeItem('user')
+
 
     location.reload()
 });
