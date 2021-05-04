@@ -114,9 +114,8 @@ $(`#data-button`).on('click', function() {
 //FUNCTIONALITY//
 
 //addition to main array of objects
-const transactions = [];
+let transactions = [];
 const addPayment = (description, cost, date, type) => {
-
 
     let newPayment = {};
     newPayment.description = description;
@@ -125,9 +124,8 @@ const addPayment = (description, cost, date, type) => {
     newPayment.type = type;
     transactions.push(newPayment);
     filterTransactions()
-        //this method devides the main transactions array into two sub-arrays (expenses,incomes)
-        // while keeping the main also
-        //(it may make improvements easier for future features but I still dont know)
+        //first step in local storage work
+    localStorage.setItem('transactions', JSON.stringify(transactions)) //here I store the transactions array as soon I created it
 };
 
 //deviding main transaction array into 2 sub-arrays
@@ -135,21 +133,22 @@ let expenseItems = []
 let incomeItems = []
 
 const filterTransactions = () => {
-    expenseItems = transactions.filter(function(elem) {
-        return elem.type === "Expense"
-    })
-    incomeItems = transactions.filter(function(elem) {
-        return elem.type === "Income"
-    })
 
-    //local storage update (first step)
-    localStorage.setItem('expenseItems', JSON.stringify(expenseItems))
-    localStorage.setItem('incomeItems', JSON.stringify(incomeItems))
-    localStorage.setItem('transactions', JSON.stringify(transactions))
+        expenseItems = transactions.filter(function(elem) {
+            return elem.type === "Expense"
+        })
+        incomeItems = transactions.filter(function(elem) {
+            return elem.type === "Income"
+        })
 
-}
+        // //local storage update (first step)
+        // localStorage.setItem('expenseItems', JSON.stringify(expenseItems)) //and here I store the two sub arrays also as soon as they are created
+        // localStorage.setItem('incomeItems', JSON.stringify(incomeItems)) //and here I store the two sub arrays also as soon as they are created
 
-//on refresh event listener ..function to restore all the changes by local storage 
+
+    }
+    //HERE YOU MUST START RESTORING
+    //on refresh event listener ..function to restore all the changes by local storage 
 window.onload = function() {
         //to reshow username and balance
         balance = JSON.parse(localStorage.getItem('balance'))
@@ -158,10 +157,9 @@ window.onload = function() {
         $(`#balance`).val(balance);
         $(`.header-name`).append(user);
 
-        if (!(!localStorage.getItem('expenseItems') === true)) { // this condittion was added in case the user refresh before adding anything
-            expenseItems = JSON.parse(localStorage.getItem('expenseItems'))
-            incomeItems = JSON.parse(localStorage.getItem('incomeItems'))
-
+        if (!(!localStorage.getItem('transactions') === true)) { // this condittion was added in case the user refresh before adding anything
+            //veery important THE PROCEDURE OF RESTORING MY SETTINGS// evey function that controls values and results on screen is executed
+            transactions = JSON.parse(localStorage.getItem('transactions')) // here is the start point of restoring results after refresh(((oonly with condition)))
             filterTransactions()
             renderList()
             updateBalance()
@@ -385,8 +383,7 @@ $(`#addButton`).on('click', function() { highestExp() }); //// it doesnt work wi
 
 //reset button to clear local storage
 $(`#reset`).on('click', function() {
-    localStorage.removeItem('expenseItems')
-    localStorage.removeItem('incomeItems')
+    localStorage.removeItem('transactions')
     localStorage.removeItem('balance')
     localStorage.removeItem('user')
 
