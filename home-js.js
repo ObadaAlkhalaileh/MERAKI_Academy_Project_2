@@ -1,6 +1,7 @@
+//sound declaration
 function clickSound() {
-    click.play()
-}
+    click.play();
+};
 
 //tabs show and hide
 const o1 = () => {
@@ -10,7 +11,7 @@ const o1 = () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-    localStorage.setItem('page', 1)
+    localStorage.setItem('page', 1);
 }
 $(`.o1`).on("click", () => { o1() });
 
@@ -21,7 +22,7 @@ const o2 = () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-    localStorage.setItem('page', 2)
+    localStorage.setItem('page', 2);
 }
 $(`.o2`).on("click", () => { o2() });
 
@@ -32,7 +33,7 @@ const o3 = () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-    localStorage.setItem('page', 3)
+    localStorage.setItem('page', 3);
 }
 $(`.o3`).on("click", () => { o3() });
 
@@ -44,7 +45,7 @@ const o4 = () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-    localStorage.setItem('page', 4)
+    localStorage.setItem('page', 4);
 }
 $(`.o4`).on("click", () => { o4() });
 
@@ -56,7 +57,7 @@ const o5 = () => {
     $(".track").fadeOut();
     $(`.navigate`).fadeOut();
     $(`.header-name2`).fadeOut();
-    localStorage.setItem('page', 5)
+    localStorage.setItem('page', 5);
 }
 $(`.fa-plus-circle`).on("click", () => { o5() });
 
@@ -76,7 +77,9 @@ const lightTheme = () => {
     $(`.fa-plus-circle`).css("color", "#07A6A4");
     $(`#addButton`).css("background-color", "#07A6A4");
     $(`.max-div`).css('background-color', 'whitesmoke');
-    localStorage.setItem('theme', 'light')
+    $(`.watch`).css("color", "black");
+
+    localStorage.setItem('theme', 'light');
 
 }
 
@@ -98,19 +101,21 @@ const darkTheme = () => {
     $(`.fa-plus-circle`).css("color", "#047E8F");
     $(`#addButton`).css("background-color", "#047E8F");
     $(`.max-div`).css('background-color', 'rgba(138, 138, 138, 0.6)');
-    localStorage.setItem('theme', 'dark')
+    $(`.watch`).css("color", "whitesmoke");
+
+    localStorage.setItem('theme', 'dark');
 }
 
-$(`.dropdown-item2`).on("click", () => { darkTheme() })
+$(`.dropdown-item2`).on("click", () => { darkTheme() });
 
 //user data
-let balance = 0
+let balance = 0;
 $(`#data-button`).on('click', function() {
     balance = Number($(`#account`).val());
     let user = $(`#username`).val();
 
-    localStorage.setItem('user', user)
-    localStorage.setItem('balance', balance)
+    localStorage.setItem('user', user);
+    localStorage.setItem('balance', balance);
 
     $(`#balance`).val(balance);
     // $(`.header-name`).text('');
@@ -354,6 +359,10 @@ const updateBalance = () => {
     updatedBalance = balance - totalExpense + totalIncome;
     $('#balance').val(updatedBalance);
 
+    if (updatedBalance <= 0) {
+        $(`.watch`).show()
+    }
+
     //important to keep the right updated balance each time
     //(prevent the accumalation of updated balances)
     updatedBalance = 0;
@@ -418,7 +427,6 @@ $(`#reset`).on('click', function() {
     localStorage.removeItem('balance');
     localStorage.removeItem('user');
     localStorage.removeItem('curr');
-    localStorage.removeItem('theme');
     localStorage.removeItem('page');
 
     location.reload();
